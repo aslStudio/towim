@@ -1,0 +1,18 @@
+@import "src/app/styles/index.scss";
+
+.root {
+    width: 100%;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    
+    background: linear-gradient(90deg, #c76fc6 0%, #9e6dbf 70%, #4076e8 100%);
+}
+
+.text {
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-right: 10px;
+    font-family: $italicFontFamily;
+}

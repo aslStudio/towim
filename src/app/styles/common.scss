@@ -1,7 +1,17 @@
 @import "variables";
 
 $mainFontFamily: 'Inter';
+$italicFontFamily: 'InterItalic';
 $monoFontFamily: 'SFMono';
+
+@font-face {
+    font-family: $italicFontFamily;
+    src: 
+            local('ItalicFontFamily'),
+            url("../../shared/assets/fonts/Inter-MediumItalic.woff") format('woff'),
+            url("../../shared/assets/fonts/Inter-MediumItalic.woff2") format('woff2');
+    font-weight: 500;
+}
 
 @font-face {
     font-family: $mainFontFamily;

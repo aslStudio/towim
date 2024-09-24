@@ -5,4 +5,8 @@ export type AuthParams = {
 }
 export type AuthResponse = {
     access_token: string
+    name: string
+    bio: string
+    avatar: string
+    isVerified: boolean
 }

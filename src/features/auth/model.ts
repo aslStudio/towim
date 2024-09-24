@@ -1,3 +1,4 @@
+import { viewerModel } from "@/entities/viewer/model"
 import { authApi } from "@/shared/api"
 import { AuthParams } from "@/shared/api/auth/types"
 import { effectorHelpers } from "@/shared/lib/effector"
@@ -19,6 +20,12 @@ sample({
     clock: authFx.doneData,
     fn: payload => payload.payload.access_token,
     target: [jwtModel.setJWTFx, onSuccess.trigger],
+})
+
+sample({
+    clock: authFx.doneData,
+    fn: ({ payload }) => payload,
+    target: viewerModel.shortModule.shortViewerUpdated,
 })
 
 export const authModel = {
