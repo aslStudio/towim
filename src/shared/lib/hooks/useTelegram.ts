@@ -16,7 +16,8 @@ type TelegramWindow = {
             HapticFeedback: {
                 impactOccurred: (v: 'light' | 'medium' | 'heavy' | 'rigid' | 'soft') => void
             },
-            platform: string
+            platform: string,
+            initData: Record<string, string>,
         },
         authData: {
             user?: {
@@ -85,6 +86,7 @@ export const useTelegram = () => {
 
     return {
         isMobileDevice,
+        initData: tg.Telegram.WebApp.initData,
 
         expand,
         haptic,

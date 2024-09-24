@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Route, Routes, useLocation} from "react-router-dom";
 
-import { Auth } from "@/pages/Auth/Auth";
+import { Splash } from "@/pages/Splash/Splash";
+import { Main } from "@/pages/Main/Main"
 
 export const RouterView = React.memo(() => {
     const location = useLocation();
@@ -24,7 +25,8 @@ export const RouterView = React.memo(() => {
             }}
         >
             <Routes location={displayLocation}>
-                <Route path={'/'} element={<Auth />} />
+                <Route path={'/'} element={<Splash />} />
+                <Route path={'/main'} element={<Main />} />
             </Routes>
         </div>
     )
