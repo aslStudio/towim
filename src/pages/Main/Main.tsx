@@ -1,5 +1,7 @@
-import { MarqueeText } from '@/widgets/main'
 import { reflect } from '@effector/reflect'
+
+import { MarqueeText } from '@/widgets/main'
+import { PerformersList } from '@/widgets/performers'
 
 import { ViewerCard, viewerModel } from '@/entities/viewer'
 
@@ -12,6 +14,7 @@ export const Main = () => {
             <ViewerCardReflect 
                 className={styles.viewer}
             />
+            <PerformersList />
         </div>
     )
 }

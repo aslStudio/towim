@@ -18,6 +18,7 @@ type TelegramWindow = {
             },
             platform: string,
             initData: Record<string, string>,
+            colorScheme: 'light' | 'dark'
         },
         authData: {
             user?: {
@@ -87,6 +88,7 @@ export const useTelegram = () => {
     return {
         isMobileDevice,
         initData: tg.Telegram.WebApp.initData,
+        theme: tg.Telegram.WebApp.colorScheme,
 
         expand,
         haptic,

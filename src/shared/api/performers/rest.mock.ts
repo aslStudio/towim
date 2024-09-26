@@ -5,7 +5,7 @@ import {Category} from "@/entities/performers/model/categories";
 
 export const performersApi = {
     fetch: async (_data: GetPerformersParams): Promise<ResponseDefault<GetPerformersResponse>> => {
-        await new Promise(resolve => setTimeout(resolve, 5000))
+        await new Promise(resolve => setTimeout(resolve, 1000))
 
         return {
             error: false,

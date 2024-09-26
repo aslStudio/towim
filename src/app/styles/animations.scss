@@ -32,3 +32,29 @@
         transform: translateX(-200%);
     }
 }
+
+@keyframes skeleton-animation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.skeleton {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+
+    animation-name: skeleton-animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+    background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+}

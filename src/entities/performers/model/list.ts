@@ -2,6 +2,7 @@ import { Category } from './categories'
 import {createStore, sample} from "effector";
 import {createEffect} from "effector/effector.umd";
 import {performersApi} from "@/shared/api";
+import { useUnit } from 'effector-react';
 
 export type Founder = {
     id: number
@@ -16,6 +17,7 @@ export type Founder = {
 
 const fetchFx = createEffect(performersApi.fetch)
 
+const $isLoading = fetchFx.pending
 const $list = createStore<Founder[]>([])
 
 sample({
@@ -25,7 +27,13 @@ sample({
     target: $list,
 })
 
+const useList = () => ({
+    isLoading: useUnit($isLoading),
+    list: useUnit($list)
+})
+
 export const listModule = {
     $list,
     fetchFx,
+    useList,
 }
