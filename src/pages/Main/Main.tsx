@@ -6,6 +6,8 @@ import { PerformersList } from '@/widgets/performers'
 import { ViewerCard, viewerModel } from '@/entities/viewer'
 
 import styles from './Main.module.scss'
+import { PerformersFilters, ReactionButtons } from '@/features/performers'
+import { NetworkingButton } from '@/features/networking'
 
 export const Main = () => {
     return (
@@ -14,7 +16,10 @@ export const Main = () => {
             <ViewerCardReflect 
                 className={styles.viewer}
             />
+            <PerformersFilters />
             <PerformersList />
+            <ReactionButtons />
+            <NetworkingButton />
         </div>
     )
 }

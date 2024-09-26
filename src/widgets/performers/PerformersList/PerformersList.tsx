@@ -1,10 +1,11 @@
 import { Category, performers } from "@/entities/performers/model"
 import { PerformerCard, PerformerCardSkeleton } from "@/entities/performers/ui/PerformerCard"
 import { useEffect, useMemo } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react"
 import 'swiper/css';
 
 import styles from './PerformersList.module.scss'
+import { performesReactionModel } from "@/features/performers";
 
 export const PerformersList = () => {
     const { isLoading, list } = performers.listModule.useList()
@@ -28,6 +29,9 @@ export const PerformersList = () => {
                 direction={'horizontal'}
                 slidesPerView={'auto'}
                 spaceBetween={18}
+                onSlideChange={
+                    (e: SwiperClass) => performesReactionModel.activeIndexUpdated(e.activeIndex)
+                }
             >
                 {list.map(item => (
                     <SwiperSlide 

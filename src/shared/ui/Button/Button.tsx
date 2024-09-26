@@ -12,6 +12,7 @@ export type ButtonProps = React.PropsWithChildren<{
     isShadow?: boolean
     size?: 's' | 'm' | 'l' | 'xl'
     icon?: keyof typeof icons
+    onClick: () => void
 }>
 
 export const Button = React.memo<ButtonProps>(({
@@ -20,13 +21,15 @@ export const Button = React.memo<ButtonProps>(({
     size = 's',
     isShadow,
     icon,
-    children
+    children,
+    onClick
 }) => {
     const classes = useMemo(() => [
         styles.root,
         styles[`view-${view}`],
         styles[`size-${size}`],
-        isShadow ? styles['is-shadow'] : ''
+        isShadow ? styles['is-shadow'] : '',
+        className ? className : '',
     ].join(' '), [className, view, size, isShadow])
 
     const iconSizes = useMemo(() => {
@@ -47,7 +50,7 @@ export const Button = React.memo<ButtonProps>(({
     }, [size])
     
     return (
-        <button className={classes}>
+        <button className={classes} onClick={onClick}>
             {icon && (
                 <IconBase
                     className={styles.icon}

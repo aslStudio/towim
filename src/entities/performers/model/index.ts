@@ -1,4 +1,4 @@
-import { categoryModule, Category } from './categories'
+import { categoryModule, Category, categoriesList } from './categories'
 import { listModule, Founder } from './list'
 import {sample} from "effector";
 
@@ -16,6 +16,7 @@ export const performers = {
 }
 
 export {
+    categoriesList,
     Category,
     type Founder,
 }

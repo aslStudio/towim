@@ -50,6 +50,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                 icon={'icon-star'}
                 size="s"
                 view="secondary"
+                onClick={() => {}}
             >
                 Stories
             </Button>
