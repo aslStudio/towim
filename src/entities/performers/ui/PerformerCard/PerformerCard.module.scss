@@ -1,0 +1,34 @@
+@import "src/app/styles/index.scss";
+
+.root {
+    width: 310px;
+    height: 395px;
+    border-radius: 24px;
+    background-color: $sectionBackground;
+}
+
+.avatar {
+    position: relative;
+    width: 100%;
+    height: 295px;
+
+    & img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.info {
+    margin-left: 20px;
+    margin-right: 77px;
+    margin-top: 16px;
+}
+
+.title {
+    display: flex;
+}
