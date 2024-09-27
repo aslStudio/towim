@@ -6,15 +6,16 @@ import { IconBase } from "../IconBase"
 import styles from './Modal.module.scss'
 import { useTelegram } from "@/shared/lib/hooks/useTelegram"
 
-export type ModalProps = {
+export type ModalProps = React.PropsWithChildren<{
     title: string
     isOpen: boolean
     onClose: () => void
-}
+}>
 
 let timeout: NodeJS.Timeout
 
 export const Modal = React.memo<ModalProps>(({
+    children,
     title,
     isOpen,
     onClose
@@ -64,6 +65,7 @@ export const Modal = React.memo<ModalProps>(({
                     height={28}
                     onClick={onClose}
                 />
+                {children}
             </article>,
             document.body,
         )

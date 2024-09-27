@@ -1,0 +1,17 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    font-size: 17px;
+    line-height: 22px;
+    background-color: $sectionBackground;
+    border: 1px solid rgba($color: #CAC2C2, $alpha: 0.2);
+    border-radius: 12px;
+    color: $color;
+
+    &::placeholder {
+        color: rgba($color: #CAC2C2, $alpha: 0.2);
+    }
+}

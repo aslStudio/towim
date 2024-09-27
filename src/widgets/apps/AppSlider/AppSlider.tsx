@@ -6,7 +6,7 @@ import styles from './AppSlider.module.scss'
 import { appsModel } from "@/entities/apps/model"
 import { useEffect, useMemo, useState } from "react"
 import { AppCellGroup, AppCellGroupSkeleton } from "@/entities/apps/ui"
-import { Modal, useModal } from "@/shared/ui/Modal"
+import { Modal, useModal, Input } from "@/shared/ui"
 
 export const AppSlider = () => {
     const { isLoading, list, fetch } = appsModel.useApps()
@@ -14,6 +14,7 @@ export const AppSlider = () => {
     const { isOpen, open, close } = useModal()
 
     const [ activeIndex, setActiveIndex ] = useState(0)
+    const [value, setValue] = useState('')
 
     const listLength = useMemo(() => {
         return list.length
@@ -69,7 +70,13 @@ export const AppSlider = () => {
                 title="TOP Mini Apps"
                 isOpen={isOpen}
                 onClose={close}
-            />
+            >
+                <Input 
+                    placeholder="test"
+                    value={value} 
+                    onInput={setValue} 
+                />
+            </Modal>
         </>
     )
 }
