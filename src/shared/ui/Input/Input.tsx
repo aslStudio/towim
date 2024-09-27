@@ -17,7 +17,7 @@ export const Input = React.memo<InputProps>(({
 }) => {
     return (
         <input
-            className={styles.root}
+            className={`${styles.root} ${className ? className : ''}`}
             value={value}
             placeholder={placeholder}
             onChange={e => onInput(e.target.value)}

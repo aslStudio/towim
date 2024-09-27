@@ -7,12 +7,12 @@
     font-size: 17px;
     line-height: 22px;
     background-color: $sectionBackground;
-    border: 1px solid rgba($color: #CAC2C2, $alpha: 0.2);
+    border: 1px solid #A2ACB0;
     border-radius: 12px;
     color: $color;
     outline: none;
 
     &::placeholder {
-        color: rgba($color: #CAC2C2, $alpha: 0.2);
+        color: #A2ACB0;
     }
 }

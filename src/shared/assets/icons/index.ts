@@ -9,6 +9,7 @@ import IconDislike from './icon-dislike.png'
 import IconLike from './icon-like.png'
 import IconBoost from './icon-boost.png'
 import IconClose from './icon-close-modal.png'
+import IconFile from './icon-file.png'
 
 export const icons = {
     'icon-verified': IconVerified,
@@ -22,4 +23,5 @@ export const icons = {
     'icon-like': IconLike,
     'icon-boost': IconBoost,
     'icon-close-modal': IconClose,
+    'icon-file': IconFile,
 }

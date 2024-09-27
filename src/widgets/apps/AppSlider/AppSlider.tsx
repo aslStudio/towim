@@ -7,6 +7,7 @@ import { appsModel } from "@/entities/apps/model"
 import { useEffect, useMemo, useState } from "react"
 import { AppCellGroup, AppCellGroupSkeleton } from "@/entities/apps/ui"
 import { Modal, useModal, Input } from "@/shared/ui"
+import { CreateAppModal } from "@/features/apps"
 
 export const AppSlider = () => {
     const { isLoading, list, fetch } = appsModel.useApps()
@@ -66,17 +67,10 @@ export const AppSlider = () => {
                     </div>
                 </div>
             </article>
-            <Modal 
-                title="TOP Mini Apps"
+            <CreateAppModal 
                 isOpen={isOpen}
                 onClose={close}
-            >
-                <Input 
-                    placeholder="test"
-                    value={value} 
-                    onInput={setValue} 
-                />
-            </Modal>
+            />
         </>
     )
 }

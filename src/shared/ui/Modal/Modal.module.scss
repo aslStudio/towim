@@ -30,7 +30,8 @@
         top: 14px;
         left: 50%;
         transform: translateX(-50%);
-        background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+        background-color: #A2ACB0;
+        z-index: 3;
     }
 
     &::before {
