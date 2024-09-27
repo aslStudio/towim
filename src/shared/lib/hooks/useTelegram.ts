@@ -41,6 +41,14 @@ export const useTelegram = () => {
         }
     }
 
+    function openTelegramLink(link: string) {
+        try {
+            tg.Telegram.WebApp.openTelegramLink(link)
+        } catch (e) {
+            alert(e)
+        }
+    }
+
     function setHeaderColor(color: string) {
         tg.Telegram.WebApp.setHeaderColor(color)
     }
@@ -95,5 +103,6 @@ export const useTelegram = () => {
         sendInviteLink,
         setHeaderColor,
         shareToStory,
+        openTelegramLink,
     }
 }

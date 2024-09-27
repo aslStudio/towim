@@ -8,6 +8,7 @@ import { ViewerCard, viewerModel } from '@/entities/viewer'
 import styles from './Main.module.scss'
 import { PerformersFilters, ReactionButtons } from '@/features/performers'
 import { NetworkingButton } from '@/features/networking'
+import { AppSlider } from '@/widgets/apps'
 
 export const Main = () => {
     return (
@@ -20,6 +21,7 @@ export const Main = () => {
             <PerformersList />
             <ReactionButtons />
             <NetworkingButton />
+            <AppSlider />
         </div>
     )
 }
