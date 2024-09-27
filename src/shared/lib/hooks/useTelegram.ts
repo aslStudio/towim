@@ -18,7 +18,19 @@ type TelegramWindow = {
             },
             platform: string,
             initData: Record<string, string>,
-            colorScheme: 'light' | 'dark'
+            colorScheme: 'light' | 'dark',
+            MainButton: {
+                setText: (v: string) => void
+                onClick: (cb: () => void) => void
+                show: () => void
+                hide: () => void
+                setParams: (data: {
+                    text?: string
+                    color?: string
+                    text_color?: string
+                    is_visible?: boolean
+                }) => void
+            }
         },
         authData: {
             user?: {
@@ -97,6 +109,7 @@ export const useTelegram = () => {
         isMobileDevice,
         initData: tg.Telegram.WebApp.initData,
         theme: tg.Telegram.WebApp.colorScheme,
+        MainButton: tg.Telegram.WebApp.MainButton,
 
         expand,
         haptic,

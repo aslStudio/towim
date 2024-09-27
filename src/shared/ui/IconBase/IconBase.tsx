@@ -6,13 +6,15 @@ export type IconBaseProps = {
     name: keyof typeof icons
     width: number
     height: number
+    onClick?: () => void
 }
 
 export const IconBase = React.memo<IconBaseProps>(({
     className,
     name,
     width,
-    height
+    height,
+    onClick
 }) => (
     <img 
         className={className}
@@ -20,5 +22,6 @@ export const IconBase = React.memo<IconBaseProps>(({
         width={width}
         height={height}
         alt="icon"
+        onClick={onClick}
     />
 ))
