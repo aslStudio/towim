@@ -2,11 +2,11 @@
 
 .root {
     width: calc(100% - 28px);
+    height: 315px;
     margin-left: 14px;
     margin-right: 14px;
     margin-top: 14px;
     border-radius: 12px;
-    padding-bottom: 13px;
     background-color: $sectionBackground;
     box-sizing: border-box;
 }
@@ -87,7 +87,6 @@
     box-sizing: border-box;
     border-radius: 12px;
     margin-top: 16px;
-    margin-bottom: 13px;
 
     background-color: rgba($color: #CAC2C2, $alpha: 0.2);
 
