@@ -12,7 +12,7 @@ export const authApi = {
                 name: 'ceosasha',
                 bio: 'Star, Founder & indie maker, Star, Founder & indie maker',
                 isVerified: true,
-                avatar: 'https://random.imagecdn.app/500/150'
+                avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
             }
         }
     }
