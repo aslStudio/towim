@@ -41,8 +41,7 @@ export const AppSlider = () => {
                 <Swiper
                     className={styles.swiper}
                     slidesPerView={1}
-                    loop={true}
-                    onSlideChange={(e: SwiperClass) => setActiveIndex(e.activeIndex)}
+                    onSlideChange={(e: SwiperClass) => setActiveIndex(e.realIndex)}
                 >
                     {list.map(item => (
                         <SwiperSlide>
