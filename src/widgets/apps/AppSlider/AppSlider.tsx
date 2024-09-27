@@ -4,13 +4,17 @@ import { Button } from "@/shared/ui"
 
 import styles from './AppSlider.module.scss'
 import { appsModel } from "@/entities/apps/model"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { AppCellGroup, AppCellGroupSkeleton } from "@/entities/apps/ui"
 
 export const AppSlider = () => {
     const { isLoading, list, fetch } = appsModel.useApps()
 
     const [ activeIndex, setActiveIndex ] = useState(0)
+
+    const listLength = useMemo(() => {
+        return list.length
+    }, [list])
 
     useEffect(() => {
         fetch().then()
@@ -49,7 +53,7 @@ export const AppSlider = () => {
                     ))}
                 </Swiper>
                 <div className={styles.pagination}>
-                    {list.map((_, key) => (
+                    {Array(listLength).fill(1).map((_, key) => (
                         <span 
                             key={key} 
                             className={`${styles['pagination-item']} ${key === activeIndex ? styles['is-active'] : ''}`}
