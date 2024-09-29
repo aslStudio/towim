@@ -1,11 +1,16 @@
 @import "src/app/styles/index.scss";
 
 .root {
+    position: relative;
+    width: 100%;
+}
+
+.marquee {
     width: 100%;
     padding-top: 9px;
     padding-bottom: 9px;
     
-    background: linear-gradient(90deg, #c76fc6 0%, #9e6dbf 70%, #4076e8 100%);
+    background: linear-gradient(90deg, #c76fc6 0%, #9e6dbf 100%);
 }
 
 .text {
@@ -15,4 +20,28 @@
     font-weight: 700;
     margin-right: 10px;
     font-family: $italicFontFamily;
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 62px;
+    height: 40px;
+
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+
+    outline: none;
+    border: none;
+
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #aa6ec2 0%, #4076e8 99.99%, #aa6ec2 100%);
 }

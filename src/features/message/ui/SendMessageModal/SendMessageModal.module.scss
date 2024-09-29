@@ -1,0 +1,17 @@
+@import "/src/app/styles/index.scss";
+
+.wrapper {
+    margin-top: 50px;
+}
+
+.is-focused {
+    height: 140%;
+}
+
+.label {
+    margin-left: 16px;
+    margin-bottom: 14px;
+    color: $color;
+    font-size: 17px;
+    line-height: 22px;
+}
