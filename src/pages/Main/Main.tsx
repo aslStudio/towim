@@ -33,5 +33,7 @@ const ViewerCardReflect = reflect({
         bio: viewerModel.shortModule.$shortViewer.map(item => item.bio),
         avatar: viewerModel.shortModule.$shortViewer.map(item => item.avatar),
         isVerified: viewerModel.shortModule.$shortViewer.map(item => item.isVerified),
+        isFilledProfile: viewerModel.shortModule.$shortViewer.map(item => item.isFilledProfile),
+        isPublishedProfile: viewerModel.shortModule.$shortViewer.map(item => item.isPublishedProfile),
     }
 })

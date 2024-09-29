@@ -6,6 +6,8 @@ export type ShortViewer = {
     bio: string
     avatar: string
     isVerified: boolean
+    isFilledProfile: boolean
+    isPublishedProfile: boolean
 }
 
 const mock: ShortViewer = {
@@ -13,6 +15,8 @@ const mock: ShortViewer = {
     bio: '',
     avatar: '',
     isVerified: false,
+    isFilledProfile: false,
+    isPublishedProfile: false
 }
 
 const shortViewerUpdated = createEvent<ShortViewer>()

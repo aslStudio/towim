@@ -10,7 +10,7 @@ export type ButtonProps = React.PropsWithChildren<{
     className?: string
     view?: 'secondary' | 'surface' | 'blue'
     isShadow?: boolean
-    size?: 's' | 'm' | 'l' | 'xl'
+    size?: 'xs' | 's' | 'm' | 'l' | 'xl'
     icon?: keyof typeof icons
     onClick: () => void
 }>

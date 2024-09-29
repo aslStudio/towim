@@ -14,7 +14,8 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
     name,
     bio,
     avatar,
-    isVerified
+    isVerified,
+    isFilledProfile,
 }) => {
     const classes = useMemo(() => [
         styles.root,
@@ -35,7 +36,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                 <div className={styles.inner}>
                     <div className={styles.title}>
                         <p>{name}</p>
-                        {isVerified && (
+                        {isVerified && isFilledProfile && (
                             <IconBase 
                                 name={'icon-verified'} 
                                 width={24}
@@ -43,7 +44,13 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                             />
                         )}
                     </div>
-                    <p className={styles.description}>{bio}</p>
+                    {isFilledProfile 
+                        ? (
+                            <p className={styles.description}>{bio}</p>
+                        )
+                        : (
+                            <></>
+                        )}
                 </div>
             </div>
             <Button

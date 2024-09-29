@@ -7,4 +7,6 @@ export type AuthResponse = {
     bio: string
     avatar: string
     isVerified: boolean
+    isFilledProfile: boolean
+    isPublishedProfile: boolean
 }
