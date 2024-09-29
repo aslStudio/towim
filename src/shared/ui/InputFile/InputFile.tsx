@@ -50,7 +50,6 @@ export const InputFile = React.memo<InputFileProps>(({
             <div className={styles.wrapper}>
                 <input 
                     className={styles.field}
-                    value={value}
                     type="file"
                     onChange={onUploadFile}
                 />
