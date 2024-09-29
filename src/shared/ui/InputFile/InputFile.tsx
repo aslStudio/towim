@@ -24,19 +24,23 @@ export const InputFile = React.memo<InputFileProps>(({
             files: FileList | null
         }
     }) {
-        if (e.target.files && e.target.files) {
-            const file = e.target.files[0]
-            setText(file.name)
-
-            const renderer = new FileReader()
-
-            renderer.onload = (event: ProgressEvent<FileReader>) => {
-                if (event.target?.result) {
-                    onChange(event.target?.result as string)   
+        try {
+            if (e.target.files && e.target.files) {
+                const file = e.target.files[0]
+                setText(file.name)
+    
+                const renderer = new FileReader()
+    
+                renderer.onload = (event: ProgressEvent<FileReader>) => {
+                    if (event.target?.result) {
+                        onChange(event.target?.result as string)   
+                    }
                 }
+    
+                renderer.readAsDataURL(file)
             }
-
-            renderer.readAsDataURL(file)
+        } catch (e) {
+            alert(e)
         }
     }
 
