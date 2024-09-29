@@ -13,8 +13,8 @@ export const authApi = {
                 bio: 'Star, Founder & indie maker, Star, Founder & indie maker',
                 isVerified: true,
                 avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
-                isFilledProfile: false,
-                isPublishedProfile: false,
+                isFilledProfile: true,
+                isPublishedProfile: true,
             }
         }
     }
