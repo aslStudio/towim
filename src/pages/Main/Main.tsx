@@ -9,14 +9,19 @@ import styles from './Main.module.scss'
 import { PerformersFilters, ReactionButtons } from '@/features/performers'
 import { NetworkingButton } from '@/features/networking'
 import { AppSlider } from '@/widgets/apps'
+import { InputFile } from '@/shared/ui'
+import { useState } from 'react'
 
 export const Main = () => {
+    const [v, setV] = useState('')
+
     return (
         <div className={styles.root}>
             <MarqueeText />
             <ViewerCardReflect 
                 className={styles.viewer}
             />
+            <InputFile value={v} onChange={setV} />
             <PerformersFilters />
             <PerformersList />
             <ReactionButtons />
