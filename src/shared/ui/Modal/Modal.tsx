@@ -37,7 +37,8 @@ export const Modal = React.memo<ModalProps>(({
                 setIsShowed(true)
                 MainButton.setParams({
                     text: 'button',
-                    is_visible: true
+                    is_visible: true,
+                    color: 'red',
                 })
                 clearTimeout(timeout)
             }, 50)
