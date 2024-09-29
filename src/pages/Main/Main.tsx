@@ -1,16 +1,21 @@
 import { reflect } from '@effector/reflect'
+import { useUnit } from 'effector-react'
 
+import { AppSlider } from '@/widgets/apps'
 import { MarqueeText } from '@/widgets/main'
 import { PerformersList } from '@/widgets/performers'
+
+import { PerformersFilters, ReactionButtons } from '@/features/performers'
+import { NetworkingButton } from '@/features/networking'
+import { FillProfileButton, PublishProfileButton } from '@/features/profile'
 
 import { ViewerCard, viewerModel } from '@/entities/viewer'
 
 import styles from './Main.module.scss'
-import { PerformersFilters, ReactionButtons } from '@/features/performers'
-import { NetworkingButton } from '@/features/networking'
-import { AppSlider } from '@/widgets/apps'
 
 export const Main = () => {
+    const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.shortModule.$shortViewer)
+
     return (
         <div className={styles.root}>
             <MarqueeText />
@@ -19,9 +24,19 @@ export const Main = () => {
             />
             <PerformersFilters />
             <PerformersList />
-            <ReactionButtons />
-            <NetworkingButton />
-            <AppSlider />
+            {!isFilledProfile && (
+                <FillProfileButton />
+            )}
+            {isFilledProfile && !isPublishedProfile && (
+                <PublishProfileButton />
+            )}
+            {isFilledProfile && isPublishedProfile && (
+                <>
+                    <ReactionButtons />
+                    <NetworkingButton />
+                    <AppSlider />
+                </>
+            )}
         </div>
     )
 }

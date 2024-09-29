@@ -49,7 +49,14 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                             <p className={styles.description}>{bio}</p>
                         )
                         : (
-                            <></>
+                            <Button
+                                className={styles['fit-profile-button']}
+                                view={'secondary'}
+                                size={'xs'}
+                                onClick={() => {}}
+                            >
+                                Fill out your profile
+                            </Button>
                         )}
                 </div>
             </div>

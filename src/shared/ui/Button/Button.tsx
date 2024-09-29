@@ -34,6 +34,7 @@ export const Button = React.memo<ButtonProps>(({
 
     const iconSizes = useMemo(() => {
         switch (size) {
+            case "xs":
             case "s":
             case "m":
                 return {
