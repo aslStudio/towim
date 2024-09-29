@@ -7,19 +7,25 @@ export type InputProps = {
     placeholder?: string
     value: string
     onInput: (v: string) => void
+    onFocus?: () => void
+    onBlur?: () => void
 }
 
 export const Input = React.memo<InputProps>(({
     className,
     placeholder,
     value,
-    onInput
+    onInput,
+    onFocus,
+    onBlur
 }) => {
     return (
         <input
             className={`${styles.root} ${className ? className : ''}`}
             value={value}
             placeholder={placeholder}
+            onFocus={onFocus}
+            onBlur={onBlur}
             onChange={e => onInput(e.target.value)}
         />
     )

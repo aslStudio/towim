@@ -14,7 +14,6 @@ export type InputFileProps = {
 export const InputFile = React.memo<InputFileProps>(({
     label,
     className,
-    value,
     onChange
 }) => {
     const [text, setText] = useState('Attach file')

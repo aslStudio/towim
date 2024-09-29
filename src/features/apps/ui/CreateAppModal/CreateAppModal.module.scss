@@ -2,6 +2,10 @@
     margin-top: 30px;
 }
 
+.is-focused {
+    height: 140%;
+}
+
 .field {
     & + & {
         margin-top: 12px;
