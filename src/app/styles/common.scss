@@ -95,6 +95,8 @@ body {
     height: 100vh;
     background-color: #F1F3F5;
     color: #000;
+    touch-action: none !important;
+    overscroll-behavior: none;
 }
 
 code {
