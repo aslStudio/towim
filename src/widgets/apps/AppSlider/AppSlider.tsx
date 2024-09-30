@@ -66,10 +66,10 @@ export const AppSlider = () => {
                     </div>
                 </div>
             </article>
-            <CreateAppModal 
-                isOpen={isOpen}
-                onClose={close}
-            />
+            {/*<CreateAppModal */}
+            {/*    isOpen={isOpen}*/}
+            {/*    onClose={close}*/}
+            {/*/>*/}
         </>
     )
 }
