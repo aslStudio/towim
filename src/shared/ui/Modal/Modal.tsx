@@ -47,8 +47,6 @@ export const Modal = React.memo<ModalProps>(({
     }, [theme])
 
     useEffect(() => {
-        alert(`${isInDOM} isInDOM`)
-
         if (isOpen) {
             setIsInDOM(true)
             timeout = setTimeout(() => {
@@ -71,29 +69,46 @@ export const Modal = React.memo<ModalProps>(({
             timeout = setTimeout(() => {
                 setIsInDOM(false)
                 clearTimeout(timeout)
-            }, 1000)
+            }, 350)
         }
     }, [isOpen, MainButton, onSubmit])
 
-    if (isInDOM) {
-        return createPortal(
-            <div className={classes}>
-                <h4 className={styles.title}>{title}</h4>
-                <IconBase
-                    className={styles.close}
-                    name={closeIcon}
-                    width={28}
-                    height={28}
-                    onClick={() => {
-                        haptic()
-                        onClose()
-                    }}
-                />
-                {children}
-            </div>,
-            document.body,
-        )
-    }
+    // if (isInDOM) {
+    //     return createPortal(
+    //         <div className={classes}>
+    //             <h4 className={styles.title}>{title}</h4>
+    //             <IconBase
+    //                 className={styles.close}
+    //                 name={closeIcon}
+    //                 width={28}
+    //                 height={28}
+    //                 onClick={() => {
+    //                     haptic()
+    //                     onClose()
+    //                 }}
+    //             />
+    //             {children}
+    //         </div>,
+    //         document.body,
+    //     )
+    // }
 
-    return null
+    // return null
+    return createPortal(
+        <div className={classes}>
+            <h4 className={styles.title}>{title}</h4>
+            <IconBase
+                className={styles.close}
+                name={closeIcon}
+                width={28}
+                height={28}
+                onClick={() => {
+                    haptic()
+                    onClose()
+                }}
+            />
+            {children}
+        </div>,
+        document.body,
+    )
 })
