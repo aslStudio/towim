@@ -6,7 +6,7 @@ export function getCategoryText(category: Category) {
         case Category.Co: return 'Co.'
         case Category.Designers: return 'Designers'
         case Category.Vip: return 'VIP'
-        case Category.Top: return 'Top'
+        case Category.Top: return 'TOP'
         case Category.Test: return 'Test'
         case Category.Test1: return 'Test1'
     }
