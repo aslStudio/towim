@@ -6,11 +6,13 @@ import { IconBase } from "../IconBase"
 import { AnimatedIcon, AnimatedIconProps } from "../AnimatedIcon"
 
 import styles from './Button.module.scss'
+import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 
 export type ButtonProps = React.PropsWithChildren<{
     className?: string
     view?: 'secondary' | 'surface' | 'blue'
     isShadow?: boolean
+    isDisabled?: boolean
     size?: 'xs' | 's' | 'm' | 'l' | 'xl'
     icon?: keyof typeof icons
     animatedIcon?: AnimatedIconProps['name']
@@ -22,18 +24,22 @@ export const Button = React.memo<ButtonProps>(({
     view = 'secondary',
     size = 's',
     isShadow,
+    isDisabled,
     icon,
     animatedIcon,
     children,
     onClick
 }) => {
+    const { haptic } = useTelegram()
+
     const classes = useMemo(() => [
         styles.root,
         styles[`view-${view}`],
         styles[`size-${size}`],
         isShadow ? styles['is-shadow'] : '',
+        isDisabled ? styles['is-disabled'] : '',
         className ? className : '',
-    ].join(' '), [className, view, size, isShadow])
+    ].join(' '), [className, view, size, isShadow, isDisabled])
 
     const iconSizes = useMemo(() => {
         switch (size) {
@@ -54,7 +60,12 @@ export const Button = React.memo<ButtonProps>(({
     }, [size])
     
     return (
-        <button className={classes} onClick={onClick}>
+        <button className={classes} onClick={() => {
+            if (!isDisabled) {
+                haptic()
+                onClick()
+            }
+        }}>
             {icon && (
                 <IconBase
                     className={styles.icon}

@@ -11,7 +11,7 @@
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0);
 
     transition: 0.3s ease;
-    transition-property: background-color, color, box-shadow;
+    transition-property: background-color, color, box-shadow, opacity;
 }
 
 .view {
@@ -75,6 +75,10 @@
 
 .is-shadow {
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.05);
+}
+
+.is-disabled {
+    opacity: 0.6;
 }
 
 .icon + .text {

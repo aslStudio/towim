@@ -24,7 +24,11 @@ export const Modal = React.memo<ModalProps>(({
     onClose,
     onSubmit
 }) => {
-    const { MainButton, theme } = useTelegram()
+    const {
+        MainButton,
+        theme,
+        haptic
+    } = useTelegram()
 
     const [isInDOM, setIsInDOM] = useState(false)
     const [isShowed, setIsShowed] = useState(false)
@@ -78,7 +82,10 @@ export const Modal = React.memo<ModalProps>(({
                     name={closeIcon}
                     width={28}
                     height={28}
-                    onClick={onClose}
+                    onClick={() => {
+                        haptic()
+                        onClose()
+                    }}
                 />
                 {children}
             </article>,
