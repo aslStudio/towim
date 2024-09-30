@@ -60,7 +60,6 @@
     font-size: 17px;
     line-height: 22px;
     min-height: 22px;
-    min-width: 60px;
     color: $color;
 }
 
@@ -85,4 +84,14 @@
         color: $color;
         font-weight: 600;
     }
+}
+
+.name-wrapper {
+    display: flex;
+    align-items: center;
+    min-width: 60px;
+}
+
+.crown {
+    margin-left: 5px;
 }

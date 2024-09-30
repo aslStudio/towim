@@ -40,5 +40,9 @@ export const animations = {
             'verified-brand-dark': require('./icons/verified-brand/verified-brand-dark.json'),
             'verified-brand-light': require('./icons/verified-brand/verified-brand-light.json'),
         },
+        crown: {
+            'crown-light': require('./icons/crown/crown-light.json'),
+            'crown-dark': require('./icons/crown/crown-dark.json'),
+        }
     }
 }

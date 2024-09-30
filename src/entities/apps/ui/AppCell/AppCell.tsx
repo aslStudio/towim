@@ -6,7 +6,7 @@ import { useTelegram } from '@/shared/lib/hooks/useTelegram'
 
 import { App } from '../../model/index'
 
-import styles from './App.module.scss'
+import styles from './AppCell.module.scss'
 
 export type AppCellProps = App & {
     className?: string
@@ -41,8 +41,18 @@ export const AppCell = React.memo<AppCellProps>(({
                     )}
                 </div>
                 <div className={styles.info}>
-                    <p>{name} {isCrown ? '' : '👑'}</p>
-                    <p>{description}</p>
+                    <div className={styles['name-wrapper']}>
+                        <p className={styles.name}>{name}</p>
+                        {isCrown && (
+                            <AnimatedIcon 
+                                className={styles.crown}
+                                name={'crown'}
+                                width={20}
+                                height={20}
+                            />
+                        )}
+                    </div>
+                    <p className={styles.description}>{description}</p>
                 </div>
             </div>
             <div className={styles.wrapper}>
@@ -55,7 +65,7 @@ export const AppCell = React.memo<AppCellProps>(({
                     <p>{toFormattedNumber(starts)}</p>
                 </div>
                 <Button
-                    animatedIcon={'check'}
+                    animatedIcon={'boost'}
                     size={'l'}
                     view={'secondary'}
                     onClick={() => openTelegramLink(link)}

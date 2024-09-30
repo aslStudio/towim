@@ -16,7 +16,7 @@ export function getCategoryIcon(
     category: Category,
 ): AnimatedIconProps['name'] | undefined {
     switch (category) {
-        case Category.Top: return 'double-star'
+        case Category.Top: return 'star'
         case Category.Vip: return 'verified'
         case Category.Co: return 'briefcase'
         default: return undefined

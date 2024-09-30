@@ -24,6 +24,7 @@ export const Textarea = React.memo<TextareaProps>(({
             className={`${styles.root} ${className ? className : ''}`}
             value={value}
             placeholder={placeholder}
+            maxLength={50}
             onFocus={onFocus}
             onBlur={onBlur}
             onChange={e => onInput(e.target.value)}
