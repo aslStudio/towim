@@ -47,6 +47,8 @@ export const Modal = React.memo<ModalProps>(({
     }, [theme])
 
     useEffect(() => {
+        alert(`${isInDOM} isInDOM`)
+
         if (isOpen) {
             setIsInDOM(true)
             timeout = setTimeout(() => {
@@ -69,7 +71,7 @@ export const Modal = React.memo<ModalProps>(({
             timeout = setTimeout(() => {
                 setIsInDOM(false)
                 clearTimeout(timeout)
-            }, 350)
+            }, 1000)
         }
     }, [isOpen, MainButton, onSubmit])
 
