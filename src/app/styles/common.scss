@@ -93,7 +93,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     height: 100vh;
-    background-color: #F1F3F5;
+    background-color: $secondaryColor!important;
     color: #000;
     touch-action: none !important;
     overscroll-behavior: none;
