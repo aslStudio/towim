@@ -22,7 +22,7 @@ export const AppSlider = () => {
 
     useEffect(() => {
         fetch().then()
-    }, [])
+    }, [fetch])
 
     return (
         <>

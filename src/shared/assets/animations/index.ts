@@ -13,8 +13,8 @@ export const animations = {
             'check-light': require('./icons/check/check-light.json'),
         },
         close: {
-            'check-dark': require('./icons/close/close-dark.json'),
-            'check-light': require('./icons/close/close-light.json'),
+            'close-dark': require('./icons/close/close-dark.json'),
+            'close-light': require('./icons/close/close-light.json'),
         },
         'double-star': {
             'double-star-dark': require('./icons/double-star/double-star-dark.json'),
