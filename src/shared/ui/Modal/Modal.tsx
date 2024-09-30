@@ -75,7 +75,7 @@ export const Modal = React.memo<ModalProps>(({
 
     if (isInDOM) {
         return createPortal(
-            <article className={classes}>
+            <div className={classes}>
                 <h4 className={styles.title}>{title}</h4>
                 <IconBase
                     className={styles.close}
@@ -88,7 +88,7 @@ export const Modal = React.memo<ModalProps>(({
                     }}
                 />
                 {children}
-            </article>,
+            </div>,
             document.body,
         )
     }
