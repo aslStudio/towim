@@ -73,42 +73,42 @@ export const Modal = React.memo<ModalProps>(({
         }
     }, [isOpen, MainButton, onSubmit])
 
-    // if (isInDOM) {
-    //     return createPortal(
-    //         <div className={classes}>
-    //             <h4 className={styles.title}>{title}</h4>
-    //             <IconBase
-    //                 className={styles.close}
-    //                 name={closeIcon}
-    //                 width={28}
-    //                 height={28}
-    //                 onClick={() => {
-    //                     haptic()
-    //                     onClose()
-    //                 }}
-    //             />
-    //             {children}
-    //         </div>,
-    //         document.body,
-    //     )
-    // }
+    if (isInDOM) {
+        return createPortal(
+            <div className={classes}>
+                <h4 className={styles.title}>{title}</h4>
+                <IconBase
+                    className={styles.close}
+                    name={closeIcon}
+                    width={28}
+                    height={28}
+                    onClick={() => {
+                        haptic()
+                        onClose()
+                    }}
+                />
+                {children}
+            </div>,
+            document.body,
+        )
+    }
 
-    // return null
-    return createPortal(
-        <div className={classes}>
-            <h4 className={styles.title}>{title}</h4>
-            <IconBase
-                className={styles.close}
-                name={closeIcon}
-                width={28}
-                height={28}
-                onClick={() => {
-                    haptic()
-                    onClose()
-                }}
-            />
-            {children}
-        </div>,
-        document.body,
-    )
+    return null
+    // return createPortal(
+    //     <div className={classes}>
+    //         <h4 className={styles.title}>{title}</h4>
+    //         <IconBase
+    //             className={styles.close}
+    //             name={closeIcon}
+    //             width={28}
+    //             height={28}
+    //             onClick={() => {
+    //                 haptic()
+    //                 onClose()
+    //             }}
+    //         />
+    //         {children}
+    //     </div>,
+    //     document.body,
+    // )
 })
