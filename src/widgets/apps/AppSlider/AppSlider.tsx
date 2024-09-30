@@ -25,7 +25,7 @@ export const AppSlider = () => {
     }, [fetch])
 
     return (
-        <>
+        <div>
             <article className={styles.root}>
                 <div className={styles.header}>
                     <p className={styles.title}>TOP Mini Apps</p>
@@ -70,6 +70,6 @@ export const AppSlider = () => {
                 isOpen={isOpen}
                 onClose={close}
             />
-        </>
+        </div>
     )
 }

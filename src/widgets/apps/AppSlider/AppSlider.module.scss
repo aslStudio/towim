@@ -1,6 +1,7 @@
 @import "/src/app/styles/index.scss";
 
 .root {
+    position: sticky;
     width: calc(100% - 28px);
     height: 315px;
     margin: 14px 14px 40px;
