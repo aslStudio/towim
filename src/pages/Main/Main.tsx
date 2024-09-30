@@ -30,13 +30,16 @@ export const Main = () => {
             {isFilledProfile && !isPublishedProfile && (
                 <PublishProfileButton />
             )}
-            {isFilledProfile && isPublishedProfile && (
-                <>
-                    <ReactionButtons />
-                    <NetworkingButton />
-                    <AppSlider />
-                </>
-            )}
+            {/*{isFilledProfile && isPublishedProfile && (*/}
+            {/*    <>*/}
+            {/*        <ReactionButtons />*/}
+            {/*        <NetworkingButton />*/}
+            {/*        <AppSlider />*/}
+            {/*    </>*/}
+            {/*)}*/}
+            <ReactionButtons />
+            <NetworkingButton />
+            <AppSlider />
         </div>
     )
 }
