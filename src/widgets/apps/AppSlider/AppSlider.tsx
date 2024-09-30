@@ -6,7 +6,7 @@ import styles from './AppSlider.module.scss'
 import { appsModel } from "@/entities/apps/model"
 import { useEffect, useMemo, useState } from "react"
 import { AppCellGroup, AppCellGroupSkeleton } from "@/entities/apps/ui"
-import { Modal, useModal, Input } from "@/shared/ui"
+import { useModal } from "@/shared/ui"
 import { CreateAppModal } from "@/features/apps"
 
 export const AppSlider = () => {
@@ -15,7 +15,6 @@ export const AppSlider = () => {
     const { isOpen, open, close } = useModal()
 
     const [ activeIndex, setActiveIndex ] = useState(0)
-    const [value, setValue] = useState('')
 
     const listLength = useMemo(() => {
         return list.length
@@ -50,7 +49,7 @@ export const AppSlider = () => {
                         onSlideChange={(e: SwiperClass) => setActiveIndex(e.realIndex)}
                     >
                         {list.map(item => (
-                            <SwiperSlide>
+                            <SwiperSlide className={styles.slide}>
                                 <AppCellGroup 
                                     group={item}
                                 />

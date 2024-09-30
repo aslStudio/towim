@@ -5,13 +5,10 @@ import { getCategoryIcon, getCategoryText } from "@/entities/performers/lib";
 import { categoriesList, performers } from "@/entities/performers/model";
 
 import { Button } from "@/shared/ui";
-import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 
 import styles from './PerformersFilters.module.scss'
 
 export const PerformersFilters = () => {
-    const { theme } = useTelegram()
-
     const { activeCategory, categoryUpdated } = performers.categoryModule.useCategory()
 
     return (
@@ -24,7 +21,7 @@ export const PerformersFilters = () => {
             {categoriesList.map(item => (
                 <SwiperSlide className={styles.slide}>
                     <Button
-                        icon={getCategoryIcon(item, theme)}
+                        animatedIcon={getCategoryIcon(item)}
                         view={item === activeCategory ? 'surface' : 'secondary'}
                         size={'m'}
                         isShadow={item === activeCategory}

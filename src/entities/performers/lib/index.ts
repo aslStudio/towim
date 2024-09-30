@@ -1,4 +1,4 @@
-import { IconBaseProps } from '@/shared/ui'
+import {AnimatedIconProps, IconBaseProps} from '@/shared/ui'
 import { Category } from '../model/categories'
 
 export function getCategoryText(category: Category) {
@@ -13,18 +13,12 @@ export function getCategoryText(category: Category) {
 }
 
 export function getCategoryIcon(
-    category: Category, 
-    theme: 'light' | 'dark'
-): IconBaseProps['name'] | undefined {
+    category: Category,
+): AnimatedIconProps['name'] | undefined {
     switch (category) {
-        case Category.Top: return 'icon-double-star'
-        case Category.Vip: 
-            if (theme === 'light') {
-                return 'icon-verified-dark'
-            } else {
-                return 'icon-verified-light'
-            }
-        case Category.Co: return 'icon-co'
+        case Category.Top: return 'double-star'
+        case Category.Vip: return 'verified'
+        case Category.Co: return 'briefcase'
         default: return undefined
     }
 }

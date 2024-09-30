@@ -3,7 +3,7 @@ import React, { useMemo } from "react";
 import { ShortViewer } from "../../model";
 
 import styles from './ViewerCard.module.scss'
-import { Button, IconBase } from "@/shared/ui";
+import { Button, AnimatedIcon } from "@/shared/ui";
 
 export type ViewerCardProps = ShortViewer & {
     className?: string
@@ -37,8 +37,8 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                     <div className={styles.title}>
                         <p>{name}</p>
                         {isVerified && isFilledProfile && (
-                            <IconBase 
-                                name={'icon-verified'} 
+                            <AnimatedIcon
+                                name={'verified-brand'}
                                 width={24}
                                 height={24}
                             />
@@ -61,7 +61,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                 </div>
             </div>
             <Button
-                icon={'icon-star'}
+                animatedIcon={'story'}
                 size="s"
                 view="secondary"
                 onClick={() => {}}

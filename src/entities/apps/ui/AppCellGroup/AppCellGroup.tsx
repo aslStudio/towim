@@ -21,7 +21,8 @@ export const AppCellGroup = React.memo<AppCellGroupProps>(({
                 <>
                     <AppCell 
                         className={styles.cell} 
-                        {...group[0]} 
+                        {...group[0]}
+                        isNew={true}
                     />
                     <div
                         className={styles.divider} 

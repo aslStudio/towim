@@ -19,7 +19,7 @@
     width: 100%;
     box-sizing: border-box;
     padding-left: 17px;
-    padding-bottom: 18.5px;
+    padding-bottom: 8.5px;
     padding-top: 7px;
     padding-right: 6px;
 }
@@ -54,13 +54,15 @@
 
 .swiper {
     width: 100%;
-    padding-top: 10px;
-    margin-top: -10px;
 
     opacity: 0;
 
     transition: 0.3s ease;
     transition-property: opacity;
+}
+
+.slide {
+    padding-top: 10px;
 }
 
 .loader {

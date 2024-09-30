@@ -10,7 +10,7 @@ export const ReactionButtons = () => {
             <Button
                 view="surface"
                 size={'l'}
-                icon={'icon-dislike'}
+                animatedIcon={'close'}
                 onClick={performesReactionModel.dislikeSended}
             >
                 Dislike
@@ -18,7 +18,7 @@ export const ReactionButtons = () => {
             <Button
                 view="surface"
                 size={'l'}
-                icon={'icon-like'}
+                animatedIcon={'check'}
                 onClick={performesReactionModel.likeSended}
             >
                 Like
@@ -26,7 +26,7 @@ export const ReactionButtons = () => {
             <Button
                 view="surface"
                 size={'l'}
-                icon={'icon-boost'}
+                animatedIcon={'boost'}
                 onClick={performesReactionModel.boostSended}
             >
                 Boost

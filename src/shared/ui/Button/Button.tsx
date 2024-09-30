@@ -3,6 +3,7 @@ import React, { useMemo } from "react"
 import { icons } from "@/shared/assets/icons"
 
 import { IconBase } from "../IconBase"
+import { AnimatedIcon, AnimatedIconProps } from "../AnimatedIcon"
 
 import styles from './Button.module.scss'
 
@@ -12,6 +13,7 @@ export type ButtonProps = React.PropsWithChildren<{
     isShadow?: boolean
     size?: 'xs' | 's' | 'm' | 'l' | 'xl'
     icon?: keyof typeof icons
+    animatedIcon?: AnimatedIconProps['name']
     onClick: () => void
 }>
 
@@ -21,6 +23,7 @@ export const Button = React.memo<ButtonProps>(({
     size = 's',
     isShadow,
     icon,
+    animatedIcon,
     children,
     onClick
 }) => {
@@ -56,6 +59,13 @@ export const Button = React.memo<ButtonProps>(({
                 <IconBase
                     className={styles.icon}
                     name={icon}
+                    {...iconSizes}
+                />
+            )}
+            {animatedIcon && (
+                <AnimatedIcon
+                    className={styles.icon}
+                    name={animatedIcon}
                     {...iconSizes}
                 />
             )}

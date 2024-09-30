@@ -30,7 +30,8 @@ type TelegramWindow = {
                     text_color?: string
                     is_visible?: boolean
                 }) => void
-            }
+            },
+            disableVerticalSwipes: () => void
         },
         authData: {
             user?: {
@@ -111,6 +112,7 @@ export const useTelegram = () => {
         theme: tg.Telegram.WebApp.colorScheme,
         MainButton: tg.Telegram.WebApp.MainButton,
 
+        disableVerticalSwipes: tg.Telegram.WebApp.disableVerticalSwipes,
         expand,
         haptic,
         sendInviteLink,

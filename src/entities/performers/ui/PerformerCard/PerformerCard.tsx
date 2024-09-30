@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IconBase } from "@/shared/ui";
+import { AnimatedIcon } from "@/shared/ui";
 
 import { type Founder } from '../../model'
 
@@ -35,8 +35,8 @@ export const PerformerCard = React.memo<PerformerCardProps>(({
                     alt={'avatar'}
                 />
                 <div className={styles.stars}>
-                    <IconBase 
-                        name={'icon-double-star'}
+                    <AnimatedIcon
+                        name={'double-star'}
                         width={24}
                         height={24}
                     />
@@ -48,14 +48,14 @@ export const PerformerCard = React.memo<PerformerCardProps>(({
                         src={theme === 'light' ? images.Performers.bg : images.Performers.bgDark} 
                         alt="bg" 
                     />
-                    <IconBase name={'icon-checked'} width={30} height={30} />
+                    <AnimatedIcon name={'check'} width={30} height={30} />
                     <p>{likes}</p>
                 </div>
             </div>
             <div className={styles.info}>
                 <div className={styles.title}>
-                    <IconBase 
-                        name={theme === 'dark' ? 'icon-verified-light' : 'icon-verified-dark'}
+                    <AnimatedIcon
+                        name={'verified'}
                         width={24}
                         height={24}
                     />

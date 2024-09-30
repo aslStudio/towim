@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, IconBase } from '@/shared/ui'
+import {AnimatedIcon, Button, IconBase} from '@/shared/ui'
 import { toFormattedNumber } from '@/shared/lib/number'
 import { useTelegram } from '@/shared/lib/hooks/useTelegram'
 
@@ -47,15 +47,15 @@ export const AppCell = React.memo<AppCellProps>(({
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.stars}>
-                    <IconBase 
-                        name={'icon-double-star'} 
+                    <AnimatedIcon
+                        name={'double-star'}
                         width={24}
                         height={24}
                     />
                     <p>{toFormattedNumber(starts)}</p>
                 </div>
                 <Button
-                    icon={'icon-checked'}
+                    animatedIcon={'check'}
                     size={'l'}
                     view={'secondary'}
                     onClick={() => openTelegramLink(link)}

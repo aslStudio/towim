@@ -1,0 +1,1 @@
+export { AnimatedIcon, type AnimatedIconProps } from './AnimatedIcon'

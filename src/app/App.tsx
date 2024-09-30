@@ -6,10 +6,11 @@ import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 import { RouterView } from './router'
 
 function App() {
-    const { expand } = useTelegram()
+    const { expand, disableVerticalSwipes } = useTelegram()
 
     useEffect(() => {
         expand()
+        disableVerticalSwipes()
     });
 
   return (

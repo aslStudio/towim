@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { authModel } from '@/features/auth/model'
 import { useNavigate } from 'react-router-dom'
 import { useTelegram } from '@/shared/lib/hooks/useTelegram'
+import {AnimatedIcon} from "@/shared/ui";
 
 export const Splash = () => {
     const navigate = useNavigate()
@@ -20,10 +21,11 @@ export const Splash = () => {
 
     return (
         <div className={styles.root}>
-            <img 
+            <AnimatedIcon
                 className={styles.logo}
-                src={images.Splash.logo}
-                alt='logo'
+                name={'towim'}
+                width={85}
+                height={85}
             />
         </div>
     )
