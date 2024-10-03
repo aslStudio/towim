@@ -20,7 +20,7 @@ export const Networking = () => {
             is_visible: true
         })
         MainButton.onClick(() => {
-            navigate('/main')
+            navigate(-1)
         })
     }, [])
 
