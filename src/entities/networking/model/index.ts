@@ -1,4 +1,5 @@
 import { networkingApi } from "@/shared/api";
+import { reducers } from "@/shared/lib/reducers";
 import { createEffect, createEvent, createStore, sample } from "effector";
 
 export type NetworkingUserItem = {
@@ -11,7 +12,9 @@ const networkingRequested = createEvent()
 
 const fetchFx = createEffect(networkingApi.fetch)
 
-const $isLoading = fetchFx.pending
+const $isLoading = createStore(true)
+    .on(networkingRequested, reducers.enabled)
+    .on(fetchFx.doneData, reducers.disabled)
 
 const $description = createStore<string>('')
 const $incoming = createStore<NetworkingUserItem[]>([])
@@ -53,7 +56,7 @@ sample({
 
 export const networkingModel = {
     $isLoading,
-    
+
     $incoming,
     $outgoing,
     $whiteList,

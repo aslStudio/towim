@@ -34,6 +34,7 @@ export const NetworkingCard = React.memo<NetworkingCardProps>(({
                 </p>
             </div>
             <LoadingLayout 
+                className={styles.wrapper}
                 isLoading={isLoading}
                 Content={(
                     <Swiper
