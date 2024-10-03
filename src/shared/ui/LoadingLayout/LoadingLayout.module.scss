@@ -1,0 +1,35 @@
+.root {
+    position: relative;
+    width: 100%;
+
+    &.is-loading {
+        & .loader {
+            opacity: 1;
+        }
+    }
+
+    &.is-content {
+        & .content {
+            opacity: 1;
+        }
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+
+.content {
+    opacity: 0;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+}

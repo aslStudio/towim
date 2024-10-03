@@ -14,6 +14,23 @@
     overflow-y: auto;
 }
 
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+
 .viewer {
     margin-top: 24px;
+}
+
+.chat {
+    margin-top: 26px;
+    margin-bottom: 40px;
+}
+
+.card {
+    & + & {
+        margin-top: 12px;
+    }
 }

@@ -26,8 +26,6 @@ const $shortViewer = createStore<ShortViewer>(mock)
     .on(shortViewerUpdated, reducers.pipe)
     .reset(reset)
 
-$shortViewer.watch(console.log)
-
 export const shortModule = {
     $shortViewer,
     shortViewerUpdated,

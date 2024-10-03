@@ -3,6 +3,7 @@ import {Route, Routes, useLocation} from "react-router-dom";
 
 import { Splash } from "@/pages/Splash/Splash";
 import { Main } from "@/pages/Main/Main"
+import { Networking } from "@/pages/Networking";
 
 export const RouterView = React.memo(() => {
     const location = useLocation();
@@ -27,6 +28,7 @@ export const RouterView = React.memo(() => {
             <Routes location={displayLocation}>
                 <Route path={'/'} element={<Splash />} />
                 <Route path={'/main'} element={<Main />} />
+                <Route path={'/networking'} element={<Networking />} />
             </Routes>
         </div>
     )

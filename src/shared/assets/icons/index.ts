@@ -11,6 +11,8 @@ import IconBoost from './icon-boost.png'
 import IconCloseModal from './icon-close-modal.png'
 import IconCloseModalLight from './icon-close-modal-light.png'
 import IconFile from './icon-file.png'
+import IconTon from './icon-ton.png'
+import IconChevron from './icon-chevron.png'
 
 export const icons = {
     'icon-verified': IconVerified,
@@ -25,5 +27,7 @@ export const icons = {
     'icon-boost': IconBoost,
     'icon-close-modal': IconCloseModal,
     'icon-file': IconFile,
-    'icon-close-modal-light': IconCloseModalLight
+    'icon-close-modal-light': IconCloseModalLight,
+    'icon-ton': IconTon,
+    'icon-chevron': IconChevron,
 }

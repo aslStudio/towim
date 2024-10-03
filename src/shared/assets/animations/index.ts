@@ -43,6 +43,10 @@ export const animations = {
         crown: {
             'crown-light': require('./icons/crown/crown-light.json'),
             'crown-dark': require('./icons/crown/crown-dark.json'),
+        },
+        share: {
+            'share-light': require('./icons/share/share-light.json'),
+            'share-dark': require('./icons/share/share-dark.json'),
         }
     }
 }

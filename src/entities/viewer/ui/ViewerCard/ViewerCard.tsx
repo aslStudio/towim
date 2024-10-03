@@ -7,6 +7,7 @@ import { Button, AnimatedIcon } from "@/shared/ui";
 
 export type ViewerCardProps = ShortViewer & {
     className?: string
+    buttonType?: 'story' | 'share'
 }
 
 export const ViewerCard = React.memo<ViewerCardProps>(({
@@ -14,6 +15,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
     name,
     bio,
     avatar,
+    buttonType = 'story',
     isVerified,
     isFilledProfile,
 }) => {
@@ -60,14 +62,26 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                         )}
                 </div>
             </div>
-            <Button
-                animatedIcon={'story'}
-                size="s"
-                view="secondary"
-                onClick={() => {}}
-            >
-                Stories
-            </Button>
+            {buttonType === 'story' && (
+                <Button
+                    animatedIcon={'story'}
+                    size="s"
+                    view="secondary"
+                    onClick={() => {}}
+                >
+                    Stories
+                </Button>
+            )}
+            {buttonType == 'share' && (
+                <Button
+                    animatedIcon={'share'}
+                    size="s"
+                    view="surface"
+                    onClick={() => {}}
+                >
+                    Share
+                </Button>
+            )}
         </article>
     )
 })

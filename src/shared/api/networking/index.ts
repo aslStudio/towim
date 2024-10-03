@@ -1,0 +1,1 @@
+export { networkingApi } from './rest.mock'

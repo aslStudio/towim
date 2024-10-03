@@ -1,0 +1,36 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: $sectionBackground;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 16px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.ton {
+    margin-right: 16px;
+}
+
+.title {
+    font-size: 17px;
+    line-height: 22px;
+    font-family: $italicFontFamily;
+    color: $color;
+    margin-bottom: 2px;
+}
+
+.description {
+    font-size: 15px;
+    line-height: 20px;
+    min-height: 20px;
+    color: $hintColor;
+}
