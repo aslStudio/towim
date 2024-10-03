@@ -5,6 +5,7 @@ import { IconBase, IconBaseProps } from "../IconBase"
 
 import styles from './Modal.module.scss'
 import { useTelegram } from "@/shared/lib/hooks/useTelegram"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export type ModalProps = React.PropsWithChildren<{
     title: string
@@ -29,6 +30,8 @@ export const Modal = React.memo<ModalProps>(({
         theme,
         haptic
     } = useTelegram()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const [isInDOM, setIsInDOM] = useState(false)
     const [isShowed, setIsShowed] = useState(false)
@@ -61,10 +64,20 @@ export const Modal = React.memo<ModalProps>(({
                 clearTimeout(timeout)
             }, 50)
         } else {
-            MainButton.setParams({
-                text: 'button',
-                is_visible: false
-            })
+            if (location.pathname.includes('networking')) {
+                MainButton.setParams({
+                    text: 'Back',
+                    is_visible: true
+                })
+                MainButton.onClick(() => {
+                    navigate(-1)
+                })
+            } else {
+                MainButton.setParams({
+                    text: 'button',
+                    is_visible: false
+                })
+            }
             setIsShowed(false)
             timeout = setTimeout(() => {
                 setIsInDOM(false)
