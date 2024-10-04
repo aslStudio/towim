@@ -34,6 +34,7 @@ type TelegramWindow = {
             BackButton: {
                 show: () => void
                 hide: () => void
+                onClick: (cb: () => void) => void
             },
             disableVerticalSwipes: () => void
         },

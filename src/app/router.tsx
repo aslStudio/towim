@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Route, Routes, useLocation} from "react-router-dom";
+import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 
 import { Splash } from "@/pages/Splash/Splash";
 import { Main } from "@/pages/Main/Main"
@@ -9,6 +9,7 @@ import { RouterPathes } from "@/shared/lib/types";
 
 export const RouterView = React.memo(() => {
     const location = useLocation();
+    const navigate = useNavigate()
 
     const { BackButton } = useTelegram();
 
@@ -22,6 +23,7 @@ export const RouterView = React.memo(() => {
             BackButton.hide()
         } else {
             BackButton.show()
+            BackButton.onClick(() => navigate(-1))
         }
     }, [location, displayLocation]);
 
