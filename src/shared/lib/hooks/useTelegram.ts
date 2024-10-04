@@ -31,6 +31,10 @@ type TelegramWindow = {
                     is_visible?: boolean
                 }) => void
             },
+            BackButton: {
+                show: () => void
+                hide: () => void
+            },
             disableVerticalSwipes: () => void
         },
         authData: {
@@ -111,6 +115,7 @@ export const useTelegram = () => {
         initData: tg.Telegram.WebApp.initData,
         theme: tg.Telegram.WebApp.colorScheme,
         MainButton: tg.Telegram.WebApp.MainButton,
+        BackButton: tg.Telegram.WebApp.BackButton,
 
         disableVerticalSwipes: tg.Telegram.WebApp.disableVerticalSwipes,
         expand,
