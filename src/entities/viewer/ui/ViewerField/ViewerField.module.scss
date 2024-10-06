@@ -75,6 +75,9 @@
     line-height: 22px;
     font-family: $mainFontFamily;
     color: $color;
+    background-color: $sectionBackground;
+    border: 1px solid #A2ACB0;
+    border-radius: 12px;
     margin-top: 4px;
     resize: none;
     height: 70px;

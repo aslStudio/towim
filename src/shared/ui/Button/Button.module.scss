@@ -29,6 +29,11 @@
         background-color: $buttonBackground;
         color: $buttonColor;
     }
+
+    &-lightBlue {
+        background-color: rgba(67, 120, 255, 0.1);
+        color: rgba(0, 122, 255, 1);
+    }
 }
 
 .size {
@@ -66,6 +71,14 @@
 
     &-xl {
         padding: 14px;
+        border-radius: 10px;
+        font-size: 17px;
+        line-height: 22px;
+        font-weight: 600;
+    }
+
+    &-xxl {
+        padding: 12px 15px;
         border-radius: 10px;
         font-size: 17px;
         line-height: 22px;

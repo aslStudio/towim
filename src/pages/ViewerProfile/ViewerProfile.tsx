@@ -4,8 +4,12 @@ import { reflect } from "@effector/reflect"
 import styles from './ViewerProfile.module.scss'
 import { useEffect } from "react"
 import { UserForm, UserStatistics } from "@/widgets/profile"
+import { Button } from "@/shared/ui"
+import { useUnit } from "effector-react"
 
 export const ViewerProfile = () => {
+    const isLoading = useUnit(viewerModel.expandModule.$isLoading)
+
     useEffect(() => {
         viewerModel.expandModule.fetchFx()
     }, [])
@@ -22,6 +26,15 @@ export const ViewerProfile = () => {
                 isVisible={true}
             />
             <UserForm />
+            <Button
+                className={`${styles.button} ${isLoading ? styles['is-loading'] : ''}`}
+                icon={'icon-telegram-purple'}
+                view={'lightBlue'}
+                size="xxl"
+                onClick={() => {}}
+            >
+                Create Your Towim
+            </Button>
         </div>
     )
 }

@@ -30,6 +30,7 @@ export const ViewerSocialsField = React.memo<ViewerSocialsFieldProps>(({
             icon={'boost'}
         >
             <LoadingLayout 
+                className={styles.wrapper}
                 isLoading={isLoading}
                 Content={(
                     <Swiper
@@ -52,7 +53,7 @@ export const ViewerSocialsField = React.memo<ViewerSocialsFieldProps>(({
                                                     className={styles['username-field']}
                                                     placeholder="Link to your social"
                                                     value={item.link}
-                                                    onInput={newValue => ({
+                                                    onInput={newValue => onInput({
                                                         ...viewer,
                                                         links: viewer.links.map(link => {
                                                             if (link.type === item.type) {

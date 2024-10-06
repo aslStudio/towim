@@ -1,5 +1,9 @@
 @import "/src/app/styles/index.scss";
 
+.wrapper {
+    height: 160px;
+}
+
 .slide {
     display: flex;
     flex-direction: column;
@@ -11,7 +15,7 @@
     padding: 16px;
     box-sizing: border-box;
 
-    background-color: $secondaryBackground;
+    background-color: $sectionBackground;
     border-radius: 16px;
 }
 

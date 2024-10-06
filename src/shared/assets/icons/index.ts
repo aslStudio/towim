@@ -15,6 +15,7 @@ import IconTon from './icon-ton.png'
 import IconChevron from './icon-chevron.png'
 import IconInstagram from './icon-instagram.png'
 import IconTelegram from './icon-telegram.png'
+import IconTelegramPurple from './icon-telegram-purple.png'
 
 export const icons = {
     'icon-verified': IconVerified,
@@ -33,5 +34,6 @@ export const icons = {
     'icon-ton': IconTon,
     'icon-chevron': IconChevron,
     'icon-instagram': IconInstagram,
-    'icon-telegram': IconTelegram
+    'icon-telegram': IconTelegram,
+    'icon-telegram-purple': IconTelegramPurple,
 }
