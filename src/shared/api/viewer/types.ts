@@ -9,6 +9,7 @@ export type ViewerResponse = {
     skills: string
     workExperience: string
     nfts: string[]
+    nftLink: string
     links: {
         type: SocialType,
         link: string,

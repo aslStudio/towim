@@ -1,7 +1,8 @@
-import { reflect } from "@effector/reflect"
 import React from "react"
+import { reflect } from "@effector/reflect"
 
-import { ViewerField, viewerModel } from "@/entities/viewer"
+import { ViewerField, viewerModel, ViewerNFTField, ViewerSocialsField } from "@/entities/viewer"
+
 import { LoadingLayout } from "@/shared/ui"
 
 import styles from './UserForm.module.scss'
@@ -23,6 +24,26 @@ export const UserForm = () => {
                 placeholder="Here you can write about your projects"
                 fieldName={'projects'}
                 icon={'boost'}
+            />
+            <FieldReflect 
+                className={styles.field}
+                title="Skills"
+                placeholder="Here you can write about your skills"
+                fieldName={'skills'}
+                icon={'boost'}
+            />
+            <FieldReflect 
+                className={styles.field}
+                title="Work experience"
+                placeholder="Here you can write about your work experience"
+                fieldName={'workExperience'}
+                icon={'boost'}
+            />
+            <NFTFielfReflect
+                className={styles.field} 
+            />
+            <SocialsFieldReflect 
+                className={styles.field} 
             />
         </div>
     )
@@ -72,5 +93,25 @@ const EditButtonReflect = reflect({
     bind: {
         isEditable: viewerModel.expandModule.$isEditable,
         onClick: viewerModel.expandModule.changeEditableStatus,
+    }
+})
+
+const NFTFielfReflect = reflect({
+    view: ViewerNFTField,
+    bind: {
+        viewer: viewerModel.expandModule.$expandViewer,
+        isEditable: viewerModel.expandModule.$isEditable,
+        isLoading: viewerModel.expandModule.$isLoading,
+        onInput: viewerModel.expandModule.expandViewerUpdated,
+    }
+})
+
+const SocialsFieldReflect = reflect({
+    view: ViewerSocialsField,
+    bind: {
+        viewer: viewerModel.expandModule.$expandViewer,
+        isEditable: viewerModel.expandModule.$isEditable,
+        isLoading: viewerModel.expandModule.$isLoading,
+        onInput: viewerModel.expandModule.expandViewerUpdated,
     }
 })

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AnimatedIcon, AnimatedIconProps } from "@/shared/ui"
+import { AnimatedIcon, AnimatedIconProps, FieldWrapper } from "@/shared/ui"
 
 import { ExpandViewer } from "../../model"
 
@@ -32,23 +32,25 @@ export const ViewerField = React.memo<ViewerFieldProps>(({
     onInput,
 }) => {
     return (
-        <div className={`${styles.root} ${className ? className : ''}`}>
-            <div className={styles.row}>
-                <AnimatedIcon 
-                    className={styles.icon}
-                    name={icon}
-                    width={24}
-                    height={24}
-                />
-                <p className={styles.title}>{title}</p>
-            </div>
+        <FieldWrapper
+            className={className}
+            title={title}
+            icon={icon}
+        >
             <div 
                 className={`${styles.wrapper} ${isLoading ? `${styles['is-loading']} skeleton` : ''}`}
             >
                 {
                     !isEditing 
                     ? (
-                        <p className={styles.value}>{String(viewer[fieldName])}</p>
+                        <>
+                            {String(viewer[fieldName]).split('<br/>').map(item => (
+                                <>
+                                    <p className={styles.value}>{item}</p>
+                                    <br />
+                                </>
+                            ))}
+                        </>
                     )
                     : (
                         <>
@@ -59,17 +61,17 @@ export const ViewerField = React.memo<ViewerFieldProps>(({
                             </p>
                             <textarea 
                                 className={styles.field}
-                                value={String(viewer[fieldName])}
+                                value={String(viewer[fieldName]).split('<br/>').join('\n')}
                                 placeholder={placeholder}
                                 onChange={e => onInput({
                                     ...viewer,
-                                    [fieldName]: e.target.value,
+                                    [fieldName]: e.target.value.split('\n').join('<br/>'),
                                 })}
                             />
                         </>
                     )
                 }
             </div>
-        </div>
+        </FieldWrapper>
     )
 })

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6dca6a32.css",
-    "main.js": "/static/js/main.d61f9c8b.js",
+    "main.css": "/static/css/main.8423db68.css",
+    "main.js": "/static/js/main.f79df7c8.js",
     "static/js/453.70514826.chunk.js": "/static/js/453.70514826.chunk.js",
     "static/media/Inter-MediumItalic.woff": "/static/media/Inter-MediumItalic.77701c0d49c4839112aa.woff",
     "static/media/Inter-Bold.woff": "/static/media/Inter-Bold.3cf58596269ad13bb894.woff",
@@ -19,13 +19,14 @@
     "static/media/SFMono-Bold.woff2": "/static/media/SFMono-Bold.02dac400b447cb482688.woff2",
     "static/media/SFMono-Semibold.woff2": "/static/media/SFMono-Semibold.632b3abec31323f2abec.woff2",
     "static/media/SFMono-Regular.woff2": "/static/media/SFMono-Regular.92b3bfd7c444a5042a43.woff2",
+    "static/media/icon-instagram.png": "/static/media/icon-instagram.3c5b29ae93ef24296b7f.png",
     "index.html": "/index.html",
-    "main.6dca6a32.css.map": "/static/css/main.6dca6a32.css.map",
-    "main.d61f9c8b.js.map": "/static/js/main.d61f9c8b.js.map",
+    "main.8423db68.css.map": "/static/css/main.8423db68.css.map",
+    "main.f79df7c8.js.map": "/static/js/main.f79df7c8.js.map",
     "453.70514826.chunk.js.map": "/static/js/453.70514826.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6dca6a32.css",
-    "static/js/main.d61f9c8b.js"
+    "static/css/main.8423db68.css",
+    "static/js/main.f79df7c8.js"
   ]
 }

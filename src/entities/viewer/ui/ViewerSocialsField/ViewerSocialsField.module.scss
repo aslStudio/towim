@@ -1,0 +1,64 @@
+@import "/src/app/styles/index.scss";
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 160px;
+    height: 160px;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    background-color: $secondaryBackground;
+    border-radius: 16px;
+}
+
+.title {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    color: $color;
+}
+
+.username-wrapper {
+    position: relative;
+
+    &.is-field {
+        & .username-field {
+            opacity: 1;
+        }
+    }
+
+    &.is-content {
+        & .username {
+            opacity: 1;
+        }
+    }
+}
+
+.username-field {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    padding: 5px!important;
+
+    opacity: 0;
+    
+    transition: 0.3s ease;
+    transition-property: opacity;
+}
+
+.username {
+    font-size: 12px;
+    line-height: 22px;
+    font-weight: 400;
+    color: $color;
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+}

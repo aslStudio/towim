@@ -11,6 +11,7 @@ export type ExpandViewer = {
     projects: string
     skills: string
     workExperience: string
+    nftLink: string
     nfts: string[]
     links: {
         type: SocialType,
@@ -40,6 +41,7 @@ const $expandViewer = createStore<ExpandViewer>({
     projects: '',
     skills: '',
     workExperience: '',
+    nftLink: '',
     nfts: [],
     links: [],
 })

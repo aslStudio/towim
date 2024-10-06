@@ -4,6 +4,10 @@
     margin-left: 16px;
     margin-right: 16px;
     width: calc(100% - 32px);
+
+    & br {
+        content: "";
+    }
 }
 
 .row {
@@ -35,6 +39,11 @@
 
     &.is-loading {
         min-height: 100px;
+
+        & p,
+        & textarea {
+            opacity: 0;
+        }
     }
 }
 
@@ -42,6 +51,11 @@
     font-size: 16px;
     line-height: 22px;
     color: $color;
+
+    opacity: 1;
+    
+    transition: 0.3s ease;
+    transition-property: opacity;
 }
 
 .max-length {
@@ -49,11 +63,17 @@
     font-size: 8px;
     line-height: 22px;
     margin-bottom: 4px;
+
+    opacity: 1;
+    
+    transition: 0.3s ease;
+    transition-property: opacity;
 }
 
 .field {
     font-size: 16px;
     line-height: 22px;
+    font-family: $mainFontFamily;
     color: $color;
     margin-top: 4px;
     resize: none;
@@ -63,6 +83,11 @@
     border: none;
     outline: none;
     padding: 0;
+
+    opacity: 1;
+    
+    transition: 0.3s ease;
+    transition-property: opacity;
 
     &::placeholder {
         color: $secondaryColor;
