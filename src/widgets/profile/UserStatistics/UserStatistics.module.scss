@@ -1,0 +1,48 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    display: flex;
+    align-items: center;
+
+    opacity: 1;
+
+    transition: 0.3s ease;
+    transition-property: opacity;
+
+    &.is-loading {
+        opacity: 0;   
+    }
+
+    &.is-hidden {
+        opacity: 0;
+    }
+}
+
+.text {
+    font-size: 12px;
+    line-height: 22px;
+    color: $secondaryColor;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+
+    & path {
+        fill: $secondaryColor;
+    }
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 12px;
+    line-height: 18px;
+    color: $secondaryColor;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+}

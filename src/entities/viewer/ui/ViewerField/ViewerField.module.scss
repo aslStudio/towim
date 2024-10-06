@@ -1,0 +1,70 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.icon {
+    margin-right: 4px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 22px;
+    color: $color;
+    font-weight: 700;
+}
+
+.wrapper {
+    padding: 16px 13px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-color: $sectionBackground;
+    min-height: auto;
+
+    transition: 0.3s ease;
+    transition-property: min-height;
+
+    &.is-loading {
+        min-height: 100px;
+    }
+}
+
+.value {
+    font-size: 16px;
+    line-height: 22px;
+    color: $color;
+}
+
+.max-length {
+    color: $secondaryColor;
+    font-size: 8px;
+    line-height: 22px;
+    margin-bottom: 4px;
+}
+
+.field {
+    font-size: 16px;
+    line-height: 22px;
+    color: $color;
+    margin-top: 4px;
+    resize: none;
+    height: 70px;
+
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0;
+
+    &::placeholder {
+        color: $secondaryColor;
+    }
+}

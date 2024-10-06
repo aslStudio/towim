@@ -11,6 +11,7 @@ export type ViewerResponse = {
     nfts: string[]
     links: {
         type: SocialType,
-        link: string
+        link: string,
+        username: string
     }[]
 }

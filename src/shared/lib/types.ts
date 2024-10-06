@@ -12,4 +12,5 @@ export enum RouterPathes {
     AUTH = '/',
     MAIN = '/main',
     NETWORKING = '/networking',
+    PROFILE = '/profile'
 }

@@ -12,15 +12,19 @@ import { FillProfileButton, PublishProfileButton } from '@/features/profile'
 import { ViewerCard, viewerModel } from '@/entities/viewer'
 
 import styles from './Main.module.scss'
+import { useNavigate } from 'react-router-dom'
+import { RouterPathes } from '@/shared/lib/types'
 
 export const Main = () => {
     const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.shortModule.$shortViewer)
+    const navigate = useNavigate()
 
     return (
         <div className={styles.root}>
             <MarqueeText />
             <ViewerCardReflect 
                 className={styles.viewer}
+                onClick={() => navigate(RouterPathes.PROFILE)}
             />
             <PerformersFilters />
             <PerformersList />

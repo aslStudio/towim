@@ -4,6 +4,8 @@ import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import { Splash } from "@/pages/Splash/Splash";
 import { Main } from "@/pages/Main/Main"
 import { Networking } from "@/pages/Networking";
+import { ViewerProfile } from "@/pages/ViewerProfile/ViewerProfile";
+
 import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 import { RouterPathes } from "@/shared/lib/types";
 
@@ -41,6 +43,7 @@ export const RouterView = React.memo(() => {
                 <Route path={RouterPathes.AUTH} element={<Splash />} />
                 <Route path={RouterPathes.MAIN} element={<Main />} />
                 <Route path={RouterPathes.NETWORKING} element={<Networking />} />
+                <Route path={RouterPathes.PROFILE} element={<ViewerProfile />} />
             </Routes>
         </div>
     )

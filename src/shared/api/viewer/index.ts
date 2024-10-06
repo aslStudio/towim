@@ -1,0 +1,1 @@
+export { viewerApi } from './rest.mock'
