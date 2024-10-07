@@ -12,10 +12,6 @@
     padding-bottom: 5vh;
     box-sizing: border-box;
     overflow-y: auto;
-
-    &.is-offset {
-        padding-bottom: 50vh;
-    }
 }
 
 .viewer {
@@ -41,5 +37,9 @@
 
     &.is-loading {
         opacity: 0;
+    }
+
+    &.is-offset {
+        margin-bottom: 50vh;
     }
 }

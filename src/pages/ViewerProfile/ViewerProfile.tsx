@@ -19,7 +19,7 @@ export const ViewerProfile = () => {
 
     return (
         <div
-            className={`${styles.root} ${isOffset ? styles['is-offset'] : ''}`}
+            className={styles.root}
         >
             <ViewerCardReflect 
                 className={styles.viewer}
@@ -32,7 +32,7 @@ export const ViewerProfile = () => {
             <ProfileButtonReflect />
             <UserForm />
             <Button
-                className={`${styles.button} ${isLoading ? styles['is-loading'] : ''}`}
+                className={`${styles.button} ${isLoading ? styles['is-loading'] : ''} ${isOffset ? styles['is-offset'] : ''}`}
                 icon={'icon-telegram-purple'}
                 view={'lightBlue'}
                 size="xxl"
