@@ -9,7 +9,6 @@ import { ViewerProfile } from "@/pages/ViewerProfile/ViewerProfile";
 import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 import { RouterPathes } from "@/shared/lib/types";
 import {Performer} from "@/pages/Performer/Performer";
-import {KeyboardOffsetProvider} from "@/shared/lib/providers";
 
 export const RouterView = React.memo(() => {
     const location = useLocation();
@@ -46,14 +45,8 @@ export const RouterView = React.memo(() => {
                 <Route path={RouterPathes.MAIN} element={<Main />} />
                 <Route path={RouterPathes.NETWORKING} element={<Networking />} />
                 <Route path={RouterPathes.PROFILE} element={<ViewerProfile />} />
-                <Route path={RouterPathes.PERFORMER} element={<PerformerPage />} />
+                <Route path={RouterPathes.PERFORMER} element={<Performer />} />
             </Routes>
         </div>
     )
 })
-
-const PerformerPage = () => (
-    <KeyboardOffsetProvider>
-        <Performer />
-    </KeyboardOffsetProvider>
-)
