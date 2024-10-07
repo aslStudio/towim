@@ -1,0 +1,1 @@
+export { CategoriesTabs, type CategoriesTabsProps } from './CategoriesTabs'

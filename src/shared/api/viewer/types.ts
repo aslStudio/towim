@@ -1,6 +1,7 @@
-import { SocialType } from "@/shared/lib/types"
+import {Category, SocialType} from "@/shared/lib/types"
 
 export type ViewerResponse = {
+    categories: Category[]
     likes: number
     views: number
     xs: number

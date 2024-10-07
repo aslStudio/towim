@@ -77,7 +77,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                     Stories
                 </Button>
             )}
-            {buttonType == 'share' && (
+            {buttonType === 'share' && (
                 <Button
                     animatedIcon={'share'}
                     size="s"

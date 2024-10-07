@@ -3,19 +3,24 @@ import { reflect } from "@effector/reflect"
 
 import styles from './ViewerProfile.module.scss'
 import { useEffect } from "react"
-import { UserForm, UserStatistics } from "@/widgets/profile"
+import {ProfileButtons, UserForm, UserStatistics} from "@/widgets/profile"
 import { Button } from "@/shared/ui"
 import { useUnit } from "effector-react"
+import {useKeyboardOffset} from "@/shared/lib/providers";
 
 export const ViewerProfile = () => {
     const isLoading = useUnit(viewerModel.expandModule.$isLoading)
+
+    const { isOffset } = useKeyboardOffset()
 
     useEffect(() => {
         viewerModel.expandModule.fetchFx()
     }, [])
 
     return (
-        <div className={styles.root}>
+        <div
+            className={`${styles.root} ${isOffset ? styles['is-offset'] : ''}`}
+        >
             <ViewerCardReflect 
                 className={styles.viewer}
                 buttonType={'share'}
@@ -23,8 +28,8 @@ export const ViewerProfile = () => {
             <UserStatisticsReflect
                 className={styles.statistics}
                 type={'viewer'}
-                isVisible={true}
             />
+            <ProfileButtonReflect />
             <UserForm />
             <Button
                 className={`${styles.button} ${isLoading ? styles['is-loading'] : ''}`}
@@ -58,5 +63,13 @@ const UserStatisticsReflect = reflect({
         views: viewerModel.expandModule.$expandViewer.map(item => item.views),
         xs: viewerModel.expandModule.$expandViewer.map(item => item.xs),
         isLoading: viewerModel.expandModule.$isLoading,
+        isVisible: viewerModel.expandModule.$isEditable.map(state => !state)
+    }
+})
+
+const ProfileButtonReflect = reflect({
+    view: ProfileButtons,
+    bind: {
+        isEditable: viewerModel.expandModule.$isEditable,
     }
 })

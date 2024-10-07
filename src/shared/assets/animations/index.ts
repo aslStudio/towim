@@ -47,6 +47,26 @@ export const animations = {
         share: {
             'share-light': require('./icons/share/share-light.json'),
             'share-dark': require('./icons/share/share-dark.json'),
-        }
+        },
+        about: {
+            'about-light': require('./icons/about/about-light.json'),
+            'about-dark': require('./icons/about/about-dark.json'),
+        },
+        'flat-star': {
+            'flat-star-light': require('./icons/flat-star/flat-star-light.json'),
+            'flat-star-dark': require('./icons/flat-star/flat-star-dark.json'),
+        },
+        'image': {
+            'image-light': require('./icons/image/image-light.json'),
+            'image-dark': require('./icons/image/image-dark.json'),
+        },
+        lighting: {
+            'lighting-light': require('./icons/lighting/lighting-light.json'),
+            'lighting-dark': require('./icons/lighting/lighting-dark.json'),
+        },
+        link: {
+            'link-light': require('./icons/link/link-light.json'),
+            'link-dark': require('./icons/link/link-dark.json'),
+        },
     }
 }

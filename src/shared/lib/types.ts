@@ -12,5 +12,18 @@ export enum RouterPathes {
     AUTH = '/',
     MAIN = '/main',
     NETWORKING = '/networking',
-    PROFILE = '/profile'
+    PROFILE = '/profile',
+    PERFORMER = '/performer/:id'
+}
+
+export enum Category {
+    Designers,
+    ContentCreators,
+    GamersStreamers
+}
+
+export const mapCategory: Record<Category, string> = {
+    [Category.Designers]: 'Designers',
+    [Category.ContentCreators]: 'Content Creators',
+    [Category.GamersStreamers]: 'Gamers & Streamers',
 }

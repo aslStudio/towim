@@ -1,8 +1,8 @@
-import { Category } from './categories'
 import {createStore, sample} from "effector";
 import {createEffect} from "effector/effector.umd";
 import {performersApi} from "@/shared/api";
 import { useUnit } from 'effector-react';
+import {Category} from "@/shared/lib/types";
 
 export type Founder = {
     id: number

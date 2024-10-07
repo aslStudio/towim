@@ -1,0 +1,13 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    position: relative;
+
+    margin-top: 85px;
+}
+
+.field {
+    & + & {
+        margin-top: 30px;
+    }
+}

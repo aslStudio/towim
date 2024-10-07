@@ -6,8 +6,11 @@ import { ViewerField, viewerModel, ViewerNFTField, ViewerSocialsField } from "@/
 import { LoadingLayout } from "@/shared/ui"
 
 import styles from './UserForm.module.scss'
+import {useKeyboardOffset} from "@/shared/lib/providers";
 
 export const UserForm = () => {
+    const { setIsOffset } = useKeyboardOffset()
+
     return (
         <div className={styles.root}>
             <EditButtonReflect />
@@ -16,28 +19,36 @@ export const UserForm = () => {
                 title="About me"
                 placeholder="Here you can write about you"
                 fieldName={'about'}
-                icon={'boost'}
+                icon={'about'}
+                onFocus={() => setIsOffset(true)}
+                onBlur={() => setIsOffset(false)}
             />
             <FieldReflect 
                 className={styles.field}
                 title="Projects"
                 placeholder="Here you can write about your projects"
                 fieldName={'projects'}
-                icon={'boost'}
+                icon={'lighting'}
+                onFocus={() => setIsOffset(true)}
+                onBlur={() => setIsOffset(false)}
             />
             <FieldReflect 
                 className={styles.field}
                 title="Skills"
                 placeholder="Here you can write about your skills"
                 fieldName={'skills'}
-                icon={'boost'}
+                icon={'flat-star'}
+                onFocus={() => setIsOffset(true)}
+                onBlur={() => setIsOffset(false)}
             />
             <FieldReflect 
                 className={styles.field}
                 title="Work experience"
                 placeholder="Here you can write about your work experience"
                 fieldName={'workExperience'}
-                icon={'boost'}
+                icon={'briefcase'}
+                onFocus={() => setIsOffset(true)}
+                onBlur={() => setIsOffset(false)}
             />
             <NFTFielfReflect
                 className={styles.field} 

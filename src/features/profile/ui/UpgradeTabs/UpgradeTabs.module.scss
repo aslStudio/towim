@@ -1,0 +1,13 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide {
+    width: fit-content!important;
+}

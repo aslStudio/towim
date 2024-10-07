@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AnimatedIcon, AnimatedIconProps, FieldWrapper } from "@/shared/ui"
+import { AnimatedIconProps, FieldWrapper } from "@/shared/ui"
 
 import { ExpandViewer } from "../../model"
 
@@ -11,12 +11,14 @@ export type ViewerFieldProps = {
     viewer: ExpandViewer
     title: string
     fieldName: keyof ExpandViewer,
-    isEditing: boolean
+    isEditing?: boolean
     icon: AnimatedIconProps['name']
-    placeholder: string
+    placeholder?: string
     maxLength?: number
     isLoading: boolean
-    onInput: (data: ExpandViewer) => void
+    onInput?: (data: ExpandViewer) => void
+    onBlur?: () => void
+    onFocus?: () => void
 }
 
 export const ViewerField = React.memo<ViewerFieldProps>(({
@@ -30,6 +32,8 @@ export const ViewerField = React.memo<ViewerFieldProps>(({
     maxLength = 264,
     fieldName,
     onInput,
+    onBlur,
+    onFocus
 }) => {
     return (
         <FieldWrapper
@@ -63,10 +67,12 @@ export const ViewerField = React.memo<ViewerFieldProps>(({
                                 className={styles.field}
                                 value={String(viewer[fieldName]).split('<br/>').join('\n')}
                                 placeholder={placeholder}
-                                onChange={e => onInput({
+                                onChange={e => onInput?.({
                                     ...viewer,
                                     [fieldName]: e.target.value.split('\n').join('<br/>'),
                                 })}
+                                onFocus={onFocus}
+                                onBlur={onBlur}
                             />
                         </>
                     )

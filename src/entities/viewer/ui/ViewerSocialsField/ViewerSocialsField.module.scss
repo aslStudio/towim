@@ -4,6 +4,13 @@
     height: 160px;
 }
 
+.swiper {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .slide {
     display: flex;
     flex-direction: column;

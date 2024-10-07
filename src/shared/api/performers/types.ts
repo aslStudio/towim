@@ -1,4 +1,4 @@
-import {Category} from "@/entities/performers/model/categories";
+import {Category, SocialType} from "@/shared/lib/types";
 
 export type GetPerformersParams = {
     category: number
@@ -14,5 +14,30 @@ export type GetPerformersResponse = {
         bio: string
         isVerified: boolean
         stars: number
+    }[]
+}
+
+export type GetExpandPerformerParams = {
+    id: number
+}
+
+export type GetExpandPerformerResponse = {
+    id: number
+    avatar: string
+    name: string
+    isVerified: boolean
+    categories: Category[]
+    likes: number
+    views: number
+    xs: number
+    about: string
+    projects: string
+    skills: string
+    workExperience: string
+    nfts: string[]
+    links: {
+        type: SocialType,
+        link: string,
+        username: string
     }[]
 }

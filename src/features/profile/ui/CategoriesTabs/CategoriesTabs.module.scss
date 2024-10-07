@@ -1,0 +1,36 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slide {
+    width: fit-content!important;
+}
+
+.button {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    font-family: $mainFontFamily;
+    color: $color;
+
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    border: none;
+    outline: none;
+
+    background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+
+    transition: 0.3s ease;
+    transition-property: background-color;
+
+    &.is-selected {
+        background-color: $sectionBackground;
+    }
+}

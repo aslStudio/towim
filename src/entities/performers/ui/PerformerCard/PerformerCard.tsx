@@ -5,9 +5,8 @@ import { AnimatedIcon } from "@/shared/ui";
 import { type Founder } from '../../model'
 
 import styles from './PerformerCard.module.scss'
-import { useTelegram } from "@/shared/lib/hooks/useTelegram";
-import { getCategoryText } from "../../lib";
-import { images } from "@/shared/assets/images";
+import {mapCategory, RouterPathes} from "@/shared/lib/types";
+import {Link} from "react-router-dom";
 
 export type PerformerCardProps = Founder & {
     className?: string
@@ -15,6 +14,7 @@ export type PerformerCardProps = Founder & {
 
 export const PerformerCard = React.memo<PerformerCardProps>(({
     className,
+    id,
     avatar,
     stars,
     likes,
@@ -22,10 +22,9 @@ export const PerformerCard = React.memo<PerformerCardProps>(({
     bio,
     category,
 }) => {
-    const { theme } = useTelegram()
-
     return (
-        <article 
+        <Link
+            to={RouterPathes.PERFORMER.replace(':id', `${id}`)}
             className={`${styles.root} ${className ? className : ''}`}
         >
             <div className={styles.avatar}>
@@ -58,11 +57,11 @@ export const PerformerCard = React.memo<PerformerCardProps>(({
                         height={24}
                     />
                     <p>{name}</p>
-                    <span>{getCategoryText(category)}</span>
+                    <span>{mapCategory[category]}</span>
                 </div>
                 <p className={styles.description}>{bio}</p>
             </div>
-        </article>
+        </Link>
     )
 })
 
@@ -78,8 +77,8 @@ const BackgroundShape = React.memo<{
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
         >
-            <g clip-path="url(#clip0_22_2494)">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M46.7446 36.1695C49.0174 31.9541 50.0672 26.9955 49.47 21.8406C47.9446 8.67379 36.2521 -0.788663 23.354 0.705586C10.4559 2.19984 1.23656 14.0849 2.76194 27.2517C4.28732 40.4185 15.9798 49.8809 28.8779 48.3867C31.2947 48.1067 33.5823 47.4619 35.6942 46.5122C37.1266 47.3908 38.8417 47.8131 40.626 47.6064C44.9253 47.1083 47.9984 43.1466 47.49 38.7577C47.3828 37.8326 47.125 36.9623 46.7446 36.1695Z" fill="black"/>
+            <g clipPath="url(#clip0_22_2494)">
+                <path fillRule="evenodd" clipRule="evenodd" d="M46.7446 36.1695C49.0174 31.9541 50.0672 26.9955 49.47 21.8406C47.9446 8.67379 36.2521 -0.788663 23.354 0.705586C10.4559 2.19984 1.23656 14.0849 2.76194 27.2517C4.28732 40.4185 15.9798 49.8809 28.8779 48.3867C31.2947 48.1067 33.5823 47.4619 35.6942 46.5122C37.1266 47.3908 38.8417 47.8131 40.626 47.6064C44.9253 47.1083 47.9984 43.1466 47.49 38.7577C47.3828 37.8326 47.125 36.9623 46.7446 36.1695Z" fill="black"/>
             </g>
             <defs>
             <clipPath id="clip0_22_2494">

@@ -1,4 +1,4 @@
-import { ResponseDefault, SocialType } from '@/shared/lib/types'
+import {Category, ResponseDefault, SocialType} from '@/shared/lib/types'
 import { type ViewerResponse } from './types'
 
 export const viewerApi = {
@@ -8,6 +8,7 @@ export const viewerApi = {
         return {
             error: false,
             payload: {
+                categories: [Category.Designers],
                 likes: 100,
                 views: 100,
                 xs: 100,
@@ -30,7 +31,7 @@ export const viewerApi = {
                         username: '@test',
                     },
                     {
-                        type: SocialType.Telegram,
+                        type: SocialType.Instagram,
                         link: 'https://test.com',
                         username: '@test',
                     }

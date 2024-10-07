@@ -6,13 +6,14 @@ import { FieldWrapper, Input, LoadingLayout } from "@/shared/ui"
 import { ExpandViewer } from "../../model"
 
 import styles from './ViewerNFTField.module.scss'
+import {useKeyboardOffset} from "@/shared/lib/providers";
 
 export type ViewerNFTFieldProps = {
     className?: string
     viewer: ExpandViewer
     isLoading: boolean
-    isEditable: boolean
-    onInput: (data: ExpandViewer) => void
+    isEditable?: boolean
+    onInput?: (data: ExpandViewer) => void
 }
 
 export const ViewerNFTField = React.memo<ViewerNFTFieldProps>(({
@@ -22,11 +23,13 @@ export const ViewerNFTField = React.memo<ViewerNFTFieldProps>(({
     isEditable,
     onInput,
 }) => {
+    const { setIsOffset } = useKeyboardOffset()
+
     return (
         <FieldWrapper
             className={className}
             title="NFT"
-            icon={'boost'}
+            icon={'image'}
         >
             <div className={[
                 styles.wrapper,
@@ -36,16 +39,19 @@ export const ViewerNFTField = React.memo<ViewerNFTFieldProps>(({
                     className={styles.field}
                     placeholder="Send the TON address to add the NFT"
                     value={viewer.nftLink}
-                    onInput={nftLink => onInput({
+                    onInput={nftLink => onInput?.({
                         ...viewer,
                         nftLink
                     })}
+                    onFocus={() => setIsOffset(true)}
+                    onBlur={() => setIsOffset(false)}
                 />
                 <LoadingLayout
                     className={styles.static}
                     isLoading={isLoading}
                     Skeleton={(
                         <Swiper
+                            className={styles.swiper}
                             slidesPerView={'auto'}
                             spaceBetween={16}
                         >
@@ -58,6 +64,7 @@ export const ViewerNFTField = React.memo<ViewerNFTFieldProps>(({
                     )}
                     Content={(
                         <Swiper
+                            className={styles.swiper}
                             slidesPerView={'auto'}
                             spaceBetween={16}
                         >

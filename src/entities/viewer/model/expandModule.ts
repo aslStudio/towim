@@ -1,9 +1,10 @@
 import { viewerApi } from "@/shared/api/viewer"
 import { reducers } from "@/shared/lib/reducers"
-import { SocialType } from "@/shared/lib/types"
+import {Category, SocialType} from "@/shared/lib/types"
 import { createEffect, createEvent, createStore, sample } from "effector"
 
 export type ExpandViewer = {
+    categories: Category[]
     likes: number
     views: number
     xs: number
@@ -34,6 +35,7 @@ const $isLoading = createStore(true)
     .on(fetchFx.doneData, reducers.disabled)
 
 const $expandViewer = createStore<ExpandViewer>({
+    categories: [],
     likes: 0,
     views: 0,
     xs: 0,
