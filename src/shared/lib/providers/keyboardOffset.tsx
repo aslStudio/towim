@@ -19,9 +19,10 @@ export const KeyboardOffsetProvider = React.memo<React.PropsWithChildren>(({
     const [isOffset, setIsOffset] = useState(false)
 
     const onSetIsOffset = useCallback((v: boolean) => {
-        if (isMobileDevice) {
-            setIsOffset(v)
-        }
+        // if (isMobileDevice) {
+        //     setIsOffset(v)
+        // }
+        setIsOffset(v)
     }, [isMobileDevice])
 
     return (
