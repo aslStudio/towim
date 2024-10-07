@@ -9,7 +9,7 @@
     color: $color;
     width: 100vw;
     height: 100vh;
-    padding-bottom: 5vh;
+    padding-bottom: 50vh;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -37,9 +37,5 @@
 
     &.is-loading {
         opacity: 0;
-    }
-
-    &.is-offset {
-        margin-bottom: 50vh;
     }
 }

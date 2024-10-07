@@ -11,8 +11,6 @@ import {useKeyboardOffset} from "@/shared/lib/providers";
 export const ViewerProfile = () => {
     const isLoading = useUnit(viewerModel.expandModule.$isLoading)
 
-    const { isOffset } = useKeyboardOffset()
-
     useEffect(() => {
         viewerModel.expandModule.fetchFx()
     }, [])
@@ -32,7 +30,7 @@ export const ViewerProfile = () => {
             <ProfileButtonReflect />
             <UserForm />
             <Button
-                className={`${styles.button} ${isLoading ? styles['is-loading'] : ''} ${isOffset ? styles['is-offset'] : ''}`}
+                className={`${styles.button} ${isLoading ? styles['is-loading'] : ''}`}
                 icon={'icon-telegram-purple'}
                 view={'lightBlue'}
                 size="xxl"
