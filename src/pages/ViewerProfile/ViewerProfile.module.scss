@@ -9,9 +9,13 @@
     color: $color;
     width: 100vw;
     height: 100vh;
-    padding-bottom: 50vh;
+    padding-bottom: 5vh;
     box-sizing: border-box;
     overflow-y: auto;
+
+    &.is-editable {
+        padding-bottom: 50vh;
+    }
 }
 
 .viewer {

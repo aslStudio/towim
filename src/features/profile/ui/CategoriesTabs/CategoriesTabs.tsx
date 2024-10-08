@@ -5,6 +5,7 @@ import {Category, mapCategory} from "@/shared/lib/types";
 
 import styles from './CategoriesTabs.module.scss'
 import {ExpandViewer} from "@/entities/viewer";
+import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 
 export type CategoriesTabsProps = {
     viewer: ExpandViewer
@@ -15,6 +16,8 @@ export const CategoriesTabs = React.memo<CategoriesTabsProps>(({
     viewer,
     onChange
 }) => {
+    const { haptic } = useTelegram()
+
     const onClick = useCallback((category: Category) => {
         if (viewer.categories.includes(category)) {
             return onChange({
@@ -48,7 +51,10 @@ export const CategoriesTabs = React.memo<CategoriesTabsProps>(({
                             styles.button,
                             viewer.categories.includes(Number(item)) ? styles['is-selected'] : ''
                         ].join(' ')}
-                        onClick={() => onClick(Number(item))}
+                        onClick={() => {
+                            haptic()
+                            onClick(Number(item))
+                        }}
                     >
                         {mapCategory[Number(item) as Category]}
                     </button>

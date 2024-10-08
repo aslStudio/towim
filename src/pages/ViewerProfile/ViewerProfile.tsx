@@ -6,10 +6,10 @@ import { useEffect } from "react"
 import {ProfileButtons, UserForm, UserStatistics} from "@/widgets/profile"
 import { Button } from "@/shared/ui"
 import { useUnit } from "effector-react"
-import {useKeyboardOffset} from "@/shared/lib/providers";
 
 export const ViewerProfile = () => {
     const isLoading = useUnit(viewerModel.expandModule.$isLoading)
+    const isEditable = useUnit(viewerModel.expandModule.$isEditable)
 
     useEffect(() => {
         viewerModel.expandModule.fetchFx()
@@ -17,7 +17,7 @@ export const ViewerProfile = () => {
 
     return (
         <div
-            className={styles.root}
+            className={`${styles.root} ${isEditable ? styles['is-editable'] : ''}`}
         >
             <ViewerCardReflect 
                 className={styles.viewer}

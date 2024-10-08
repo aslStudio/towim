@@ -14,17 +14,24 @@ import { ViewerCard, viewerModel } from '@/entities/viewer'
 import styles from './Main.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { RouterPathes } from '@/shared/lib/types'
+import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 
 export const Main = () => {
     const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.shortModule.$shortViewer)
+
     const navigate = useNavigate()
+
+    const { haptic } = useTelegram()
 
     return (
         <div className={styles.root}>
             <MarqueeText />
             <ViewerCardReflect 
                 className={styles.viewer}
-                onClick={() => navigate(RouterPathes.PROFILE)}
+                onClick={() => {
+                    haptic()
+                    navigate(RouterPathes.PROFILE)
+                }}
             />
             <PerformersFilters />
             <PerformersList />
