@@ -9,6 +9,8 @@ export type FortuneWheelProps = {
     className?: string
 }
 
+let timeout: NodeJS.Timeout
+
 export const FortuneWheel: React.FC<FortuneWheelProps> = ({
     className
 }) => {
@@ -29,8 +31,9 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
 
             setRotation(result);
 
-            setTimeout(() => {
+            timeout = setTimeout(() => {
                 setIsSpinning(false);
+                clearTimeout(timeout)
             }, 5000);
         }
     }, [isSpinning, rotation])
@@ -43,7 +46,7 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
         MainButton.onClick(() => {
             handleSpinClick()
         })
-    }, [handleSpinClick])
+    }, [])
 
     return (
         <div 
