@@ -15,6 +15,7 @@ import styles from './Main.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { RouterPathes } from '@/shared/lib/types'
 import {useTelegram} from "@/shared/lib/hooks/useTelegram";
+import { GamesSlider } from '@/widgets/games'
 
 export const Main = () => {
     const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.shortModule.$shortViewer)
@@ -46,6 +47,7 @@ export const Main = () => {
                     <ReactionButtons />
                     <NetworkingButton />
                     <AppSlider />
+                    <GamesSlider />
                 </>
             )}
         </div>

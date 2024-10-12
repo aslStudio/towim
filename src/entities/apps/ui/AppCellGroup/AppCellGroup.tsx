@@ -16,7 +16,7 @@ export const AppCellGroup = React.memo<AppCellGroupProps>(({
     group,
 }) => {
     return (
-        <div className={`${styles.root} ${className}`}>
+        <div className={`${styles.root} ${className ? className : ''}`}>
             {group[0] && (
                 <>
                     <AppCell 

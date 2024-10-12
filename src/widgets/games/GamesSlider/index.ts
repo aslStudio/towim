@@ -1,0 +1,1 @@
+export { GamesSlider } from './GamesSlider'

@@ -1,6 +1,6 @@
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react"
 
-import { Button } from "@/shared/ui"
+import { Button, SliderSection } from "@/shared/ui"
 
 import styles from './AppSlider.module.scss'
 import { appsModel } from "@/entities/apps/model"
@@ -10,6 +10,33 @@ import { useModal } from "@/shared/ui"
 import { CreateAppModal } from "@/features/apps"
 
 export const AppSlider = () => {
+    const { isLoading, list, fetch } = appsModel.useApps()
+
+    const { isOpen, open, close } = useModal()
+
+    return (
+        <>
+            <SliderSection 
+                list={list.map(item => <AppCellGroup group={item} />)}
+                Skeleton={<AppCellGroupSkeleton />}
+
+                title="TOP Mini Apps"
+                buttonText="+ Add App"
+                isButtonDisabled={false}
+                onButtonClick={open}
+
+                isLoading={isLoading}
+                fetch={fetch}
+            />
+            <CreateAppModal
+                isOpen={isOpen}
+                onClose={close}
+            />
+        </>
+    )
+}
+
+export const AppSliderT = () => {
     const { isLoading, list, fetch } = appsModel.useApps()
 
     const { isOpen, open, close } = useModal()
@@ -26,7 +53,7 @@ export const AppSlider = () => {
 
     return (
         <div>
-            <article className={styles.root}>
+            <div className={styles.root}>
                 <div className={styles.header}>
                     <p className={styles.title}>TOP Mini Apps</p>
                     <Button
@@ -65,7 +92,7 @@ export const AppSlider = () => {
                         ))}
                     </div>
                 </div>
-            </article>
+            </div>
             <CreateAppModal
                 isOpen={isOpen}
                 onClose={close}

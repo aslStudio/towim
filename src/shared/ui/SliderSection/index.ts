@@ -1,0 +1,1 @@
+export { SliderSection, type SliderSectionProps } from './SliderSection'

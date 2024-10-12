@@ -5,10 +5,11 @@ import { Splash } from "@/pages/Splash/Splash";
 import { Main } from "@/pages/Main/Main"
 import { Networking } from "@/pages/Networking";
 import { ViewerProfile } from "@/pages/ViewerProfile/ViewerProfile";
+import { Performer } from "@/pages/Performer/Performer";
+import { Fortune } from "@/pages/Fortune/Fortune";
 
 import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 import { RouterPathes } from "@/shared/lib/types";
-import {Performer} from "@/pages/Performer/Performer";
 
 export const RouterView = React.memo(() => {
     const location = useLocation();
@@ -46,6 +47,7 @@ export const RouterView = React.memo(() => {
                 <Route path={RouterPathes.NETWORKING} element={<Networking />} />
                 <Route path={RouterPathes.PROFILE} element={<ViewerProfile />} />
                 <Route path={RouterPathes.PERFORMER} element={<Performer />} />
+                <Route path={RouterPathes.FORTUNE} element={<Fortune />} />
             </Routes>
         </div>
     )

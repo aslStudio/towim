@@ -13,7 +13,8 @@ export enum RouterPathes {
     MAIN = '/main',
     NETWORKING = '/networking',
     PROFILE = '/profile',
-    PERFORMER = '/performer/:id'
+    PERFORMER = '/performer/:id',
+    FORTUNE = '/fortune'
 }
 
 export enum Category {

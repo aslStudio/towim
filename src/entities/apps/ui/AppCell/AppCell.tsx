@@ -36,7 +36,7 @@ export const AppCell = React.memo<AppCellProps>(({
                         <span 
                             className={styles.badge}
                         >
-                            New
+                            NEW
                         </span>
                     )}
                 </div>

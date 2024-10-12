@@ -11,7 +11,7 @@ export type AppCellGroupSkeletonProps = {
 export const AppCellGroupSkeleton = React.memo<AppCellGroupSkeletonProps>(({
     className
 }) => (
-    <div className={`${styles.root} ${className}`}>
+    <div className={`${styles.root} ${className ? className : ''}`}>
         <AppCellSkeleton
             className={styles.cell} 
         />

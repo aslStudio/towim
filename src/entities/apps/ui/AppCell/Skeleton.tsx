@@ -1,4 +1,5 @@
 import React from "react"
+
 import styles from './AppCell.module.scss'
 
 export type AppCellSkeletonProps = {
