@@ -29,6 +29,7 @@ type TelegramWindow = {
                     color?: string
                     text_color?: string
                     is_visible?: boolean
+                    is_active?: boolean
                 }) => void
             },
             BackButton: {

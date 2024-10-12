@@ -41,12 +41,13 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
     useEffect(() => {
         MainButton.setParams({
             text: 'Let’s go',
-            is_visible: true
+            is_visible: true,
+            is_active: !isSpinning,
         })
         MainButton.onClick(() => {
             handleSpinClick()
         })
-    }, [])
+    }, [handleSpinClick])
 
     return (
         <div 
