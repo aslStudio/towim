@@ -1,9 +1,15 @@
+import { FortuneWheel } from '@/features/fortune'
+
 import styles from './Fortune.module.scss'
+import { BonusSection, FortuneActions, FortuneBalance } from '@/widgets/fortune'
 
 export const Fortune = () => {
     return (
         <div className={styles.root}>
-            <h1>FORTUNE</h1>
+            <BonusSection />
+            <FortuneBalance />
+            <FortuneActions />
+            <FortuneWheel />
         </div>
     )
 }

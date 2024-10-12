@@ -1,0 +1,50 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 400;
+    color: $color;
+    text-align: center;
+}
+
+.tickets {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.balance {
+    width: fit-content;
+    min-width: 120px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+    text-align: center;
+
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
+
+    color: $color;
+
+    & + & {
+        margin-left: 20px;
+    }
+}

@@ -12,6 +12,7 @@ export const GameCellEmpty: React.FC<Pick<GameCellProps, 'className'>> = ({
             title='Soon'
             description='...'
             img={images.Games.placeholder}
+            isDisabled
         />
     )
 }

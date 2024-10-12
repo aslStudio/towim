@@ -36,3 +36,7 @@ export function toFormattedIndex(value: number) {
 
     return value
 }
+
+export function mod(value: number, modulus: number) {
+    return ((value % modulus) + modulus) % modulus;
+}

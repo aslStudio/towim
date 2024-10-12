@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
+
+.button {
+    & + & {
+        margin-left: 16px;
+    }
+}
