@@ -32,7 +32,7 @@ export const CreateAppModal = React.memo<CreateAppModalProps>(({
     return (
         <Modal
             title="TOP Mini Apps"
-            buttonText="Add App (stars) 10000 "
+            buttonText="Add App 10,000"
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={onClose}

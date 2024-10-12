@@ -48,3 +48,21 @@
         animation-timing-function: cubic-bezier(0.33, 0, 0.67, 1);
     }
 }
+
+.row {
+    display: flex;
+    width: calc(100% - 24px);
+    margin-right: 12px;
+    margin-left: 12px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.close-button {
+    width: 54px;
+    margin-left: 9px;
+}
+
+.play-button {
+    width: calc(100% - 126px);
+}

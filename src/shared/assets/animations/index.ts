@@ -68,5 +68,17 @@ export const animations = {
             'link-light': require('./icons/link/link-light.json'),
             'link-dark': require('./icons/link/link-dark.json'),
         },
+        gift: {
+            'gift-dark': require('./icons/gift/gift-dark.json'),
+            'gift-light': require('./icons/gift/gift-light.json'),
+        },
+        withdraw: {
+            'withdraw-dark': require('./icons/withdraw/withdraw-dark.json'),
+            'withdraw-light': require('./icons/withdraw/withdraw-light.json'),
+        },
+        ticket: {
+            'ticket-dark': require('./icons/ticket/ticket-dark.json'),
+            'ticket-light': require('./icons/ticket/ticket-light.json'),
+        }
     }
 }

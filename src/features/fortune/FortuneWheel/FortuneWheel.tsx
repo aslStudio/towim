@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useState } from "react"
 
 import styles from './FortuneWheel.module.scss'
 import { images } from "@/shared/assets/images"
-import { getRandomInt, mod } from "@/shared/lib/number"
-import { useTelegram } from "@/shared/lib/hooks/useTelegram"
+import { getRandomInt } from "@/shared/lib/number"
+import { useNavigate } from "react-router-dom"
+import { Button } from "@/shared/ui"
 
 export type FortuneWheelProps = {
     className?: string
@@ -14,7 +15,7 @@ let timeout: NodeJS.Timeout
 export const FortuneWheel: React.FC<FortuneWheelProps> = ({
     className
 }) => {
-    const { MainButton } = useTelegram()
+    const navigate = useNavigate()
 
     const [isSpinning, setIsSpinning] = useState(false);
     const [rotation, setRotation] = useState(0);
@@ -38,37 +39,46 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
         }
     }, [isSpinning, rotation])
 
-    useEffect(() => {
-        MainButton.setParams({
-            text: 'Let’s go',
-            is_visible: true,
-            is_active: !isSpinning,
-        })
-        MainButton.onClick(() => {
-            handleSpinClick()
-        })
-    }, [handleSpinClick])
-
     return (
-        <div 
-            className={`${styles.root} ${className ? className : ''}`}
-        >
-            <img 
-                className={styles.wheel}
-                style={{
-                    transform: `rotate(${rotation}deg)`
-                }}
-                src={images.Fortune.wheel}
-                alt="wheel"
-            />
-            <img 
-                className={[
-                    styles.arrow,
-                    isSpinning && styles['is-spinning'],
-                ].join(' ')}
-                src={images.Fortune.arrow}
-                alt="arrow"
-            />
+        <div>
+            <div 
+                className={`${styles.root} ${className ? className : ''}`}
+            >
+                <img 
+                    className={styles.wheel}
+                    style={{
+                        transform: `rotate(${rotation}deg)`
+                    }}
+                    src={images.Fortune.wheel}
+                    alt="wheel"
+                />
+                <img 
+                    className={[
+                        styles.arrow,
+                        isSpinning && styles['is-spinning'],
+                    ].join(' ')}
+                    src={images.Fortune.arrow}
+                    alt="arrow"
+                />
+            </div>
+            <div className={styles.row}>
+                <Button
+                    className={styles['play-button']}
+                    isDisabled={isSpinning}
+                    view={'purple'}
+                    size="xl"
+                    onClick={handleSpinClick}
+                >
+                    Play
+                </Button>
+                <Button
+                    className={styles['close-button']}
+                    animatedIcon={'close'}
+                    view={'blue'}
+                    size="xl"
+                    onClick={() => navigate('/main')}
+                />
+            </div>
         </div>
     )
 }

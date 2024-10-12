@@ -40,7 +40,7 @@ export const GameCellGroup: React.FC<GameCellGroupProps> = ({
             <>
                 <Item 
                     className={styles.cell}
-                    item={group[1]}
+                    item={group[2]}
                 />
                 <div
                     className={styles.divider} 

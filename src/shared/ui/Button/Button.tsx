@@ -10,7 +10,7 @@ import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 
 export type ButtonProps = React.PropsWithChildren<{
     className?: string
-    view?: 'secondary' | 'surface' | 'blue' | 'lightBlue' | 'gray'
+    view?: 'secondary' | 'surface' | 'blue' | 'lightBlue' | 'gray' | 'purple'
     isShadow?: boolean
     isDisabled?: boolean
     size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'
@@ -60,6 +60,14 @@ export const Button = React.memo<ButtonProps>(({
                 }
         }
     }, [size])
+
+    const iconView = useMemo(() => {
+        if (view === 'blue') {
+            return 'light'
+        }
+
+        return 'auto'
+    }, [view])
     
     return (
         <button className={classes} onClick={() => {
@@ -79,6 +87,7 @@ export const Button = React.memo<ButtonProps>(({
                 <AnimatedIcon
                     className={styles.icon}
                     name={animatedIcon}
+                    theme={iconView}
                     {...iconSizes}
                 />
             )}

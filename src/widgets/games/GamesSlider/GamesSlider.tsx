@@ -17,19 +17,17 @@ export const GamesSlider = () => {
                 img: images.Games.fortune,
                 onPress: () => navigate(RouterPathes.FORTUNE),
             },
-            'placeholder',
+            {
+                id: 'gifts',
+                title: 'Gifts',
+                description: 'Complete tasks and get gifts',
+                view: 'green',
+                isBadge: false,
+                animatedIcon: 'gift',
+                onPress: () => navigate(RouterPathes.FORTUNE),
+            },
             'placeholder',
         ],
-        [
-            'placeholder',
-            'placeholder',
-            'placeholder',
-        ],
-        [
-            'placeholder',
-            'placeholder',
-            'placeholder',
-        ]
     ]
 
     return (

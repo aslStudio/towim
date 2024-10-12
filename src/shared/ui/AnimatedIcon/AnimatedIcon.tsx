@@ -6,6 +6,7 @@ import {animations} from "@/shared/assets/animations";
 export type AnimatedIconProps = {
     className?: string
     name: keyof typeof animations.icons
+    theme?: 'auto' | 'light' | 'dark'
     width: number
     height: number
 }
@@ -15,18 +16,23 @@ export const AnimatedIcon = React.memo<AnimatedIconProps>(({
     name,
     width,
     height,
+    theme = 'auto',
 }) => {
-    const { theme } = useTelegram()
+    const { theme: nativeTheme } = useTelegram()
 
     const iconName = useMemo(() => {
         const data = animations.icons[name]
 
-        if (theme === 'light') {
-            return `${name}-dark` as keyof typeof data
+        if (theme === 'auto') {
+            if (nativeTheme === 'light') {
+                return `${name}-dark` as keyof typeof data
+            }
+    
+            return `${name}-light` as keyof typeof data
         }
 
-        return `${name}-light` as keyof typeof data
-    }, [theme, name])
+        return `${name}-${theme}` as keyof typeof data
+    }, [theme, name, nativeTheme])
 
     return (
         <div className={className}>

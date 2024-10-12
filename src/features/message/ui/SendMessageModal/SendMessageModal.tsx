@@ -30,7 +30,7 @@ export const SendMessageModal = React.memo<SendMessageModalProps>(({
     return (
         <Modal
             title="Message"
-            buttonText="Send message (stars) 1,000"
+            buttonText="Send message 1,000"
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={onClose}

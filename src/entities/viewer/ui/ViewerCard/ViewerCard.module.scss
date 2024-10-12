@@ -50,16 +50,13 @@
         max-width: calc(100% - 32px);
         font-size: 24px;
         line-height: 22px;
+        margin-right: 4px;
         letter-spacing: 0.42px;
         font-weight: 700;
         text-overflow: ellipsis;
         text-wrap: nowrap;
         overflow: hidden;
         color: $color;
-    }
-
-    & img {
-        margin-left: 8px;
     }
 }
 

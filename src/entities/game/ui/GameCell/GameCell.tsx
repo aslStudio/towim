@@ -1,14 +1,16 @@
-import React from "react"
+import React, { useMemo } from "react"
 
 import styles from './GameCell.module.scss'
-import { Button } from "@/shared/ui"
+import { AnimatedIcon, AnimatedIconProps, Button } from "@/shared/ui"
 
 export type GameCellProps = {
     className?: string
     id: string | number
     title: string
     description: string
-    img: string
+    img?: string
+    animatedIcon?: AnimatedIconProps['name']
+    view?: 'transparent' | 'green'
     isBadge?: boolean
     isDisabled?: boolean
     onPress?: (id: string | number) => void
@@ -20,10 +22,17 @@ export const GameCell = React.memo<GameCellProps>(({
     title,
     description,
     img,
+    animatedIcon,
+    view = 'transparent',
     isBadge = false,
     isDisabled = false,
     onPress
 }) => {
+    const avatarClasses = useMemo(() => [
+        styles.avatar,
+        styles[`is-${view}`]
+    ].join(' '), [view])
+
     return (
         <div 
             className={[
@@ -34,8 +43,20 @@ export const GameCell = React.memo<GameCellProps>(({
         >
             <div className={styles.wrapper}>
                 <div className={styles['avatar-wrapper']}>
-                    <div className={styles.avatar}>
-                        <img src={img} alt={`game-avatar-${id}`} />
+                    <div className={avatarClasses}>
+                        {img && (
+                            <img 
+                                className={styles['avatar-image']}
+                                src={img} 
+                                alt={`game-avatar-${id}`} />
+                        )}
+                        {animatedIcon && (
+                            <AnimatedIcon 
+                                name={animatedIcon}
+                                width={35}
+                                height={35}
+                            />
+                        )}
                     </div>
                     {isBadge && (
                         <span 

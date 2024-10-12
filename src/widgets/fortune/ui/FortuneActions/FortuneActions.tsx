@@ -9,25 +9,28 @@ export const FortuneActions = () => {
                 className={styles.button}
                 view={'surface'}
                 size="l"
+                animatedIcon={'ticket'}
                 onClick={() => {}}
             >
-                🎟️ Tickets
+                Tickets
             </Button>
             <Button
                 className={styles.button}
                 view={'surface'}
                 size="l"
+                animatedIcon={'gift'}
                 onClick={() => {}}
             >
-                ⬆️ Withdraw
+                Gift
             </Button>
             <Button
                 className={styles.button}
                 view={'surface'}
                 size="l"
+                animatedIcon={'withdraw'}
                 onClick={() => {}}
             >
-                🎁️ Gift
+                Withdraw
             </Button>
         </div>
     )

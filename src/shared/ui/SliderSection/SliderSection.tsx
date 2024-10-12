@@ -69,14 +69,16 @@ export const SliderSection = React.memo<SliderSectionProps>(({
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className={styles.pagination}>
-                    {Array(listLength).fill(1).map((_, key) => (
-                        <span 
-                            key={key} 
-                            className={`${styles['pagination-item']} ${key === activeIndex ? styles['is-active'] : ''}`}
-                        />
-                    ))}
-                </div>
+                {listLength > 1 && (
+                    <div className={styles.pagination}>
+                        {Array(listLength).fill(1).map((_, key) => (
+                            <span 
+                                key={key} 
+                                className={`${styles['pagination-item']} ${key === activeIndex ? styles['is-active'] : ''}`}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )
