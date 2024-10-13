@@ -28,7 +28,10 @@ export const PrivateChatSlider = React.memo<PrivateChatSliderProps>(({
             className={`${styles.root} ${className}`}
             isLoading={isLoading}
             Skeleton={(
-                <PrivateChatCard isLoading={true} />
+                <PrivateChatCard 
+                    className={styles.loader}
+                    isLoading={true} 
+                />
             )}
             Content={(
                 <Swiper 
