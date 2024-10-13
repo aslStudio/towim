@@ -2,6 +2,7 @@ import { reducers } from "@/shared/lib/reducers"
 import { createEvent, createStore } from "effector"
 
 export type ShortViewer = {
+    id: number
     name: string
     bio: string
     avatar: string
@@ -11,6 +12,7 @@ export type ShortViewer = {
 }
 
 const mock: ShortViewer = {
+    id: 1,
     name: '',
     bio: '',
     avatar: '',

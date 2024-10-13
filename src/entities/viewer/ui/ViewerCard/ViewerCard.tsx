@@ -1,9 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import { ShortViewer } from "../../model";
 
 import styles from './ViewerCard.module.scss'
 import { Button, AnimatedIcon } from "@/shared/ui";
+import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 
 export type ViewerCardProps = ShortViewer & {
     className?: string
@@ -13,6 +14,7 @@ export type ViewerCardProps = ShortViewer & {
 
 export const ViewerCard = React.memo<ViewerCardProps>(({
     className,
+    id,
     name,
     bio,
     avatar,
@@ -21,10 +23,28 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
     isFilledProfile,
     onClick,
 }) => {
+    const { shareLink, shareToStory } = useTelegram()
+
     const classes = useMemo(() => [
         styles.root,
         className ? className : ''
     ].join(' '), [className])
+
+    const onShare = useCallback(() => {
+        shareLink(`https://t.me/TowimFontendTestBot?start=performer&performerId=${id}`)
+    }, [shareLink, id])
+
+    const onStory = () => {
+        shareToStory(
+            'https://drive.google.com/file/d/157gX63C9dR_hJiKXPQEyJiEfRRbYL5g7/view?usp=sharing',
+            {
+                widget_link: {
+                    url: 'https://t.me/TowimFontendTestBot',
+                    name: 't.me/towim'
+                }
+            }
+        )
+    }
 
     return (
         <article className={classes}>
@@ -72,7 +92,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                     animatedIcon={'story'}
                     size="s"
                     view="secondary"
-                    onClick={() => {}}
+                    onClick={onStory}
                 >
                     Stories
                 </Button>
@@ -82,7 +102,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
                     animatedIcon={'share'}
                     size="s"
                     view="surface"
-                    onClick={() => {}}
+                    onClick={onShare}
                 >
                     Share
                 </Button>

@@ -8,6 +8,7 @@ export const authApi = {
         return {
             error: false,
             payload: {
+                id: 1,
                 access_token: 'test-jwt',
                 name: 'ceosasha',
                 bio: 'Star, Founder & indie maker, Star, Founder & indie maker',

@@ -45,6 +45,7 @@ export const ViewerProfile = () => {
 const ViewerCardReflect = reflect({
     view: ViewerCard,
     bind: {
+        id: viewerModel.shortModule.$shortViewer.map(item => item.id),
         name: viewerModel.shortModule.$shortViewer.map(item => item.name),
         bio: viewerModel.shortModule.$shortViewer.map(item => item.bio),
         avatar: viewerModel.shortModule.$shortViewer.map(item => item.avatar),

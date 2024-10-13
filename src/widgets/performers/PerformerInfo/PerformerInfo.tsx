@@ -29,7 +29,7 @@ export const PerformerInfo = () => {
     }, [active])
 
     const onShare = useCallback(() => {
-        shareLink(`https://t.me/TowimFontendTestBot?start=performer&id=${active.id}`)
+        shareLink(`https://t.me/TowimFontendTestBot?start=performer&performerId=${active.id}`)
     }, [active, shareLink])
 
     return (
