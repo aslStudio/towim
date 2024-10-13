@@ -3,6 +3,7 @@ import styles from './Gifts.module.scss'
 import { useTelegram } from '@/shared/lib/hooks/useTelegram'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { AnimatedIcon } from '@/shared/ui'
 
 export const Gifts = () => {
     const { MainButton } = useTelegram()
@@ -20,7 +21,12 @@ export const Gifts = () => {
 
     return (
         <div className={styles.root}>
-            <p className={styles.icon}>📋</p>
+            <AnimatedIcon 
+                className={styles.icon}
+                name={'gift'}
+                width={80}
+                height={80}
+            />
             <p className={styles.title}>Gifts</p>
             <p className={styles.description}>Get more tickets for wheel spins here</p>
             <List />

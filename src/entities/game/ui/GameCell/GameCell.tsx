@@ -40,6 +40,7 @@ export const GameCell = React.memo<GameCellProps>(({
                 isDisabled ? styles['is-disabled'] : '',
                 className ? className : '',
             ].join(' ')}
+            onClick={() => onPress?.(id)}
         >
             <div className={styles.wrapper}>
                 <div className={styles['avatar-wrapper']}>

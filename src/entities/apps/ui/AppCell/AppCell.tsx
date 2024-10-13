@@ -26,7 +26,10 @@ export const AppCell = React.memo<AppCellProps>(({
     const { openTelegramLink } = useTelegram()
 
     return (
-        <div className={`${styles.root} ${className ? className : ''}`}>
+        <div 
+            className={`${styles.root} ${className ? className : ''}`}
+            onClick={() => openTelegramLink(link)}
+        >
             <div className={styles.wrapper}>
                 <div className={styles['avatar-wrapper']}>
                     <div className={styles.avatar}>

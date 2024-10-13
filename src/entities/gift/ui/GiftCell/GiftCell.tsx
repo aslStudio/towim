@@ -36,7 +36,6 @@ export const GiftCell = React.memo<GiftCellProps>(({
                 <div className={styles.icon}>
                     <AnimatedIcon 
                         name={icon}
-                        theme={'light'}
                         width={32}
                         height={32}
                     />
@@ -46,7 +45,6 @@ export const GiftCell = React.memo<GiftCellProps>(({
                     <div className={styles.description}>
                         <AnimatedIcon 
                             name={'ticket'}
-                            theme={'light'}
                             width={16}
                             height={16}
                         />

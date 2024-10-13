@@ -1,3 +1,5 @@
+@import "/src/app/styles/variables.scss";
+
 .root {
     display: flex;
     justify-content: space-between;
@@ -34,7 +36,7 @@
 .title {
     font-size: 15px;
     line-height: 20px;
-    color: #fff;
+    color: $color;
 }
 
 .description {
@@ -45,7 +47,7 @@
 
     font-size: 12px;
     line-height: 20px;
-    color: #fff;
+    color: $color;
 
     & p {
         margin-left: 2px;

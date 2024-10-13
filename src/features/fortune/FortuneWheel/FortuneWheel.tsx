@@ -4,7 +4,7 @@ import styles from './FortuneWheel.module.scss'
 import { images } from "@/shared/assets/images"
 import { getRandomInt } from "@/shared/lib/number"
 import { useNavigate } from "react-router-dom"
-import { Button } from "@/shared/ui"
+import { useTelegram } from "@/shared/lib/hooks/useTelegram"
 
 export type FortuneWheelProps = {
     className?: string
@@ -16,6 +16,8 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
     className
 }) => {
     const navigate = useNavigate()
+
+    const { MainButton } = useTelegram()
 
     const [isSpinning, setIsSpinning] = useState(false);
     const [rotation, setRotation] = useState(0);
@@ -39,10 +41,21 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
         }
     }, [isSpinning, rotation])
 
+    useEffect(() => {
+        MainButton.setParams({
+            text: 'Back',
+            is_visible: true
+        })
+        MainButton.onClick(() => {
+            navigate(-1)
+        })
+    }, [])
+
     return (
         <div>
             <div 
                 className={`${styles.root} ${className ? className : ''}`}
+                onClick={handleSpinClick}
             >
                 <img 
                     className={styles.wheel}
@@ -59,24 +72,6 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
                     ].join(' ')}
                     src={images.Fortune.arrow}
                     alt="arrow"
-                />
-            </div>
-            <div className={styles.row}>
-                <Button
-                    className={styles['play-button']}
-                    isDisabled={isSpinning}
-                    view={'purple'}
-                    size="xl"
-                    onClick={handleSpinClick}
-                >
-                    Play
-                </Button>
-                <Button
-                    className={styles['close-button']}
-                    animatedIcon={'close'}
-                    view={'blue'}
-                    size="xl"
-                    onClick={() => navigate('/main')}
                 />
             </div>
         </div>
