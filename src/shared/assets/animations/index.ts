@@ -79,6 +79,22 @@ export const animations = {
         ticket: {
             'ticket-dark': require('./icons/ticket/ticket-dark.json'),
             'ticket-light': require('./icons/ticket/ticket-light.json'),
-        }
+        },
+        ton: {
+            'ton-light': require('./icons/ton/ton-light.json'),
+            'ton-dark': require('./icons/ton/ton-dark.json'),
+        },
+        roxman: {
+            'roxman-light': require('./icons/roxman/roxman-light.json'),
+            'roxman-dark': require('./icons/roxman/roxman-dark.json'),
+        },
+        friend: {
+            'friend-light': require('./icons/friend/friend-light.json'),
+            'friend-dark': require('./icons/friend/friend-dark.json'),
+        },
+        ceosanya: {
+            'ceosanya-light': require('./icons/ceosanya/ceosanya-light.json'),
+            'ceosanya-dark': require('./icons/ceosanya/ceosanya-dark.json'),
+        },
     }
 }
