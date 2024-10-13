@@ -28,12 +28,13 @@ export const PrivateChatSlider = React.memo<PrivateChatSliderProps>(({
             className={`${styles.root} ${className}`}
             isLoading={isLoading}
             Skeleton={(
-                <SwiperSlide>
-                    <PrivateChatCard isLoading={true} />
-                </SwiperSlide>
+                <PrivateChatCard isLoading={true} />
             )}
             Content={(
-                <Swiper>
+                <Swiper 
+                    className={styles.swiper}
+                    spaceBetween={16}
+                >
                     {data.map(item => (
                         <SwiperSlide>
                             <PrivateChatCard 
