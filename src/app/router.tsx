@@ -27,7 +27,13 @@ export const RouterView = React.memo(() => {
             BackButton.hide()
         } else {
             BackButton.show()
-            BackButton.onClick(() => navigate(-1))
+            BackButton.onClick(() => {
+                if (location.pathname.includes('performer')) {
+                    navigate('/main')
+                } else {
+                    navigate(-1)
+                }
+            })
         }
     }, [location, displayLocation]);
 

@@ -5,15 +5,18 @@ import {performers} from "@/entities/performers/model";
 import {AnimatedIcon, Button, LoadingLayout} from "@/shared/ui";
 
 import styles from './PerformerInfo.module.scss'
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import {mapCategory} from "@/shared/lib/types";
 import {UserStatistics} from "@/widgets/profile";
+import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 
 export const PerformerInfo = () => {
     const [ active, isLoading ] = useUnit([
         performers.poolModule.$active,
         performers.poolModule.$isLoading,
     ])
+
+    const { shareLink } = useTelegram()
 
     const description = useMemo(() => {
         return active.categories.reduce((prev, curr, index) => {
@@ -24,6 +27,10 @@ export const PerformerInfo = () => {
             return prev + `${mapCategory[curr]}`
         }, '' as string)
     }, [active])
+
+    const onShare = useCallback(() => {
+        shareLink(`https://t.me/TowimFontendTestBot?start=performer&&id=${active.id}`)
+    }, [active, shareLink])
 
     return (
         <LoadingLayout
@@ -83,7 +90,7 @@ export const PerformerInfo = () => {
                             size={'l'}
                             view={'surface'}
                             animatedIcon={'share'}
-                            onClick={() => {}}
+                            onClick={onShare}
                         >
                             Share
                         </Button>

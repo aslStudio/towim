@@ -50,7 +50,7 @@ type TelegramWindow = {
 export const useTelegram = () => {
     const tg = (window as unknown as TelegramWindow)
 
-    function sendInviteLink(link: string) {
+    function shareLink(link: string) {
         try {
             tg.Telegram.WebApp.openTelegramLink(
                 `https://t.me/share/url?url=${link}&text=`
@@ -122,7 +122,7 @@ export const useTelegram = () => {
         disableVerticalSwipes: tg.Telegram.WebApp.disableVerticalSwipes,
         expand,
         haptic,
-        sendInviteLink,
+        shareLink,
         setHeaderColor,
         shareToStory,
         openTelegramLink,
