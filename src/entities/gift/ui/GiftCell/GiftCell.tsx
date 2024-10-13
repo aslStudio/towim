@@ -59,7 +59,7 @@ export const GiftCell = React.memo<GiftCellProps>(({
                 </div>
             </div>
             <Button 
-                view={'surface'}
+                view={'secondary'}
                 size={'s'}
                 onClick={onClaim}
             >

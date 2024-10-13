@@ -1,0 +1,9 @@
+.wrapper {
+    margin-top: 25px;
+}
+
+.field {
+    & + & {
+        margin-top: 8px;
+    }
+}

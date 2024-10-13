@@ -1,0 +1,25 @@
+@import "/src/app/styles/index.scss";
+
+.root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 16px;
+    box-sizing: border-box;
+
+    border-radius: 16px;
+
+    font-size: 17px;
+    line-height: 22px;
+
+    background-color: rgba($color: #CAC2C2, $alpha: 0.2);
+    color: $color;
+
+    & p {
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+    }
+}

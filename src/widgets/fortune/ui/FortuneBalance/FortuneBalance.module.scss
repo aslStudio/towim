@@ -8,12 +8,23 @@
     margin-top: 24px;
 }
 
+.title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .title {
+    width: fit-content;
     font-size: 20px;
     line-height: 20px;
     font-weight: 400;
     color: $color;
-    text-align: center;
+    text-align: left;
+}
+
+.icon {
+    margin-left: 5px;
 }
 
 .tickets {

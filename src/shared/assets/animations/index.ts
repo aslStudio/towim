@@ -96,5 +96,13 @@ export const animations = {
             'ceosanya-light': require('./icons/ceosanya/ceosanya-light.json'),
             'ceosanya-dark': require('./icons/ceosanya/ceosanya-dark.json'),
         },
+        copy: {
+            'copy-light': require('./icons/copy/copy-light.json'),
+            'copy-dark': require('./icons/copy/copy-dark.json'),
+        },
+        more: {
+            'more-light': require('./icons/more/more-light.json'),
+            'more-dark': require('./icons/more/more-dark.json'),
+        }
     }
 }

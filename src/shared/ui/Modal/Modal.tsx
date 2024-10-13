@@ -11,6 +11,7 @@ export type ModalProps = React.PropsWithChildren<{
     title: string
     buttonText?: string
     isOpen: boolean
+    size?: 'm' | 'l'
     onClose: () => void
     onSubmit?: () => void
 }>
@@ -21,6 +22,7 @@ export const Modal = React.memo<ModalProps>(({
     children,
     title,
     buttonText,
+    size = 'l',
     isOpen,
     onClose,
     onSubmit
@@ -38,8 +40,9 @@ export const Modal = React.memo<ModalProps>(({
 
     const classes = useMemo(() => [
         styles.root,
+        styles[`size-${size}`],
         isShowed ? styles['is-open'] : ''
-    ].join(' '), [isShowed])
+    ].join(' '), [isShowed, size])
 
     const closeIcon = useMemo<IconBaseProps['name']>(() => {
         if (theme === 'light') {

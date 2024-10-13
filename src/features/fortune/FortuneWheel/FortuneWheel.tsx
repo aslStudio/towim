@@ -5,6 +5,7 @@ import { images } from "@/shared/assets/images"
 import { getRandomInt } from "@/shared/lib/number"
 import { useNavigate } from "react-router-dom"
 import { useTelegram } from "@/shared/lib/hooks/useTelegram"
+import { RouterPathes } from "@/shared/lib/types"
 
 export type FortuneWheelProps = {
     className?: string
@@ -47,9 +48,9 @@ export const FortuneWheel: React.FC<FortuneWheelProps> = ({
             is_visible: true
         })
         MainButton.onClick(() => {
-            navigate(-1)
+            navigate(RouterPathes.MAIN)
         })
-    }, [])
+    }, [navigate])
 
     return (
         <div>

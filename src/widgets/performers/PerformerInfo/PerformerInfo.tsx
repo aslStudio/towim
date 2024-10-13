@@ -1,14 +1,15 @@
+import { useMemo } from "react";
 import {useUnit} from "effector-react/effector-react.mjs";
+
+import {UserStatistics} from "@/widgets/profile";
+import { UserShareModal } from "@/widgets/profile/UserShareModal";
 
 import {performers} from "@/entities/performers/model";
 
-import {AnimatedIcon, Button, LoadingLayout} from "@/shared/ui";
+import {AnimatedIcon, Button, LoadingLayout, useModal} from "@/shared/ui";
+import {mapCategory} from "@/shared/lib/types";
 
 import styles from './PerformerInfo.module.scss'
-import { useCallback, useMemo } from "react";
-import {mapCategory} from "@/shared/lib/types";
-import {UserStatistics} from "@/widgets/profile";
-import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 
 export const PerformerInfo = () => {
     const [ active, isLoading ] = useUnit([
@@ -16,7 +17,7 @@ export const PerformerInfo = () => {
         performers.poolModule.$isLoading,
     ])
 
-    const { shareLink } = useTelegram()
+    const { isOpen, open, close } = useModal()
 
     const description = useMemo(() => {
         return active.categories.reduce((prev, curr, index) => {
@@ -28,75 +29,79 @@ export const PerformerInfo = () => {
         }, '' as string)
     }, [active])
 
-    const onShare = useCallback(() => {
-        shareLink(`https://t.me/TowimFontendTestBot?start=performer&performerId=${active.id}`)
-    }, [active, shareLink])
-
     return (
-        <LoadingLayout
-            className={styles.root}
-            isLoading={isLoading}
-            Skeleton={(
-                <div className={styles.wrapper}>
-                    <div className={styles.avatar} />
-                </div>
-            )}
-            Content={(
-                <div className={styles.wrapper}>
-                    <div className={styles.avatar}>
-                        <img
-                            src={active.avatar}
-                            alt={'avatar'}
-                        />
+        <>
+            <LoadingLayout
+                className={styles.root}
+                isLoading={isLoading}
+                Skeleton={(
+                    <div className={styles.wrapper}>
+                        <div className={styles.avatar} />
                     </div>
-                    <div className={styles.title}>
-                        {active.isVerified && (
-                            <AnimatedIcon
-                                name={'verified-brand'}
-                                width={24}
-                                height={24}
+                )}
+                Content={(
+                    <div className={styles.wrapper}>
+                        <div className={styles.avatar}>
+                            <img
+                                src={active.avatar}
+                                alt={'avatar'}
                             />
-                        )}
-                        <p>{active.name}</p>
+                        </div>
+                        <div className={styles.title}>
+                            {active.isVerified && (
+                                <AnimatedIcon
+                                    name={'verified-brand'}
+                                    width={24}
+                                    height={24}
+                                />
+                            )}
+                            <p>{active.name}</p>
+                        </div>
+                        <p className={styles.description}>{description}</p>
+                        <UserStatistics
+                            className={styles.statistics}
+                            likes={active.likes}
+                            views={active.views}
+                            xs={active.xs}
+                            type={'performer'}
+                            isLoading={false}
+                            isVisible={true}
+                        />
+                        <div className={styles.buttons}>
+                            <Button
+                                size={'l'}
+                                view={'surface'}
+                                animatedIcon={'close'}
+                                onClick={() => {}}
+                            >
+                                Dislike
+                            </Button>
+                            <Button
+                                size={'l'}
+                                view={'surface'}
+                                animatedIcon={'check'}
+                                onClick={() => {}}
+                            >
+                                Like
+                            </Button>
+                            <Button
+                                size={'l'}
+                                view={'surface'}
+                                animatedIcon={'share'}
+                                onClick={open}
+                            >
+                                Share
+                            </Button>
+                        </div>
                     </div>
-                    <p className={styles.description}>{description}</p>
-                    <UserStatistics
-                        className={styles.statistics}
-                        likes={active.likes}
-                        views={active.views}
-                        xs={active.xs}
-                        type={'performer'}
-                        isLoading={false}
-                        isVisible={true}
-                    />
-                    <div className={styles.buttons}>
-                        <Button
-                            size={'l'}
-                            view={'surface'}
-                            animatedIcon={'close'}
-                            onClick={() => {}}
-                        >
-                            Dislike
-                        </Button>
-                        <Button
-                            size={'l'}
-                            view={'surface'}
-                            animatedIcon={'check'}
-                            onClick={() => {}}
-                        >
-                            Like
-                        </Button>
-                        <Button
-                            size={'l'}
-                            view={'surface'}
-                            animatedIcon={'share'}
-                            onClick={onShare}
-                        >
-                            Share
-                        </Button>
-                    </div>
-                </div>
-            )}
-        />
+                )}
+            />
+            <UserShareModal
+                isOpen={isOpen}
+                link={`https://tow.im/${active.name}`}
+                botLink={`https://t.me/towimbot/app?startapp=${active.id}`}
+                onClose={close}
+            />
+        </>
     )
 }

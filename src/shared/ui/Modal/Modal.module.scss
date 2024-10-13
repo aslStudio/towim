@@ -2,10 +2,8 @@
 
 .root {
     position: absolute;
-    top: 44px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 44px);
     background-color: $sectionBackground;
     padding-left: 16px;
     padding-right: 16px;
@@ -43,6 +41,18 @@
         top: -44px;
         left: 0;
         z-index: -1;
+    }
+}
+
+.size {
+    &-m {
+        top: 50vh;
+        height: 50vh;
+    }
+
+    &-l {
+        top: 44px;
+        height: calc(100vh - 44px);
     }
 }
 
