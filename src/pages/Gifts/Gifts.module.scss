@@ -1,0 +1,57 @@
+@import "/src/app/styles/variables.scss";
+
+.root {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: $secondaryBackground;
+    color: $color;
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 5vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.icon {
+    font-size: 85px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.title {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.description {
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    color: $hintColor;
+    margin-top: 16px;
+}
+
+.list {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: rgba(170, 110, 194, 1);
+    border-radius: 10px;
+    margin-top: 24px;
+}
+
+.cell {
+    & + & {
+        margin-top: 16px;
+    }
+}

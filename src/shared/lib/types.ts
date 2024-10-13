@@ -14,7 +14,8 @@ export enum RouterPathes {
     NETWORKING = '/networking',
     PROFILE = '/profile',
     PERFORMER = '/performer/:id',
-    FORTUNE = '/fortune'
+    FORTUNE = '/fortune',
+    GIFTS = '/gifts'
 }
 
 export enum Category {

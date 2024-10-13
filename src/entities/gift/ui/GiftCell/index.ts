@@ -1,0 +1,1 @@
+export { GiftCell, type GiftCellProps } from './GiftCell'

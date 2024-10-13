@@ -1,8 +1,12 @@
 import { Button } from "@/shared/ui"
 
 import styles from './FortuneActions.module.scss'
+import { useNavigate } from "react-router-dom"
+import { RouterPathes } from "@/shared/lib/types"
 
 export const FortuneActions = () => {
+    const navigate = useNavigate()
+
     return (
         <div className={styles.root}>
             <Button
@@ -19,7 +23,7 @@ export const FortuneActions = () => {
                 view={'surface'}
                 size="l"
                 animatedIcon={'gift'}
-                onClick={() => {}}
+                onClick={() => navigate(RouterPathes.GIFTS)}
             >
                 Gift
             </Button>

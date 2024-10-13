@@ -7,6 +7,7 @@ import { Networking } from "@/pages/Networking";
 import { ViewerProfile } from "@/pages/ViewerProfile/ViewerProfile";
 import { Performer } from "@/pages/Performer/Performer";
 import { Fortune } from "@/pages/Fortune/Fortune";
+import { Gifts } from "@/pages/Gifts/Gifts";
 
 import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 import { RouterPathes } from "@/shared/lib/types";
@@ -54,6 +55,7 @@ export const RouterView = React.memo(() => {
                 <Route path={RouterPathes.PROFILE} element={<ViewerProfile />} />
                 <Route path={RouterPathes.PERFORMER} element={<Performer />} />
                 <Route path={RouterPathes.FORTUNE} element={<Fortune />} />
+                <Route path={RouterPathes.GIFTS} element={<Gifts />} />
             </Routes>
         </div>
     )

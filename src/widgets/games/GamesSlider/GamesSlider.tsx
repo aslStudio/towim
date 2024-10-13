@@ -24,7 +24,7 @@ export const GamesSlider = () => {
                 view: 'green',
                 isBadge: false,
                 animatedIcon: 'gift',
-                onPress: () => navigate(RouterPathes.FORTUNE),
+                onPress: () => navigate(RouterPathes.GIFTS),
             },
             'placeholder',
         ],
