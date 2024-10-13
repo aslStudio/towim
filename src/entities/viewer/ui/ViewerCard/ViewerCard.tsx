@@ -36,7 +36,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
 
     const onStory = () => {
         shareToStory(
-            'https://drive.google.com/file/d/157gX63C9dR_hJiKXPQEyJiEfRRbYL5g7/view?usp=sharing',
+            'https://drive.google.com/u/0/drive-viewer/AKGpiha21qbQfrxwV4OtgbRqWeWBviEZX3hasTXNdOLFjJrdDvDQd3YXSmmQWmk4Z5S8aaGrxuS9fXcvF1GZdAi5nvP9YKpW1iv6pNw=s1600-rw-v1',
             {
                 widget_link: {
                     url: 'https://t.me/TowimFontendTestBot',
