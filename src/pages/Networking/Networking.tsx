@@ -4,7 +4,7 @@ import styles from './Networking.module.scss'
 import { useEffect } from 'react'
 import { networkingModel } from '@/entities/networking/model'
 import { reflect } from '@effector/reflect'
-import { PrivateChatCard } from '@/widgets/networking'
+import { PrivateChatCard, PrivateChatSlider } from '@/widgets/networking'
 import { NetworkingCard } from '@/entities/networking'
 import { useTelegram } from '@/shared/lib/hooks/useTelegram'
 import { useNavigate } from 'react-router-dom'
@@ -47,10 +47,10 @@ export const Networking = () => {
 }
 
 const CardChatReflect = reflect({
-    view: PrivateChatCard,
+    view: PrivateChatSlider,
     bind: {
         isLoading: networkingModel.$isLoading,
-        description: networkingModel.$description
+        data: networkingModel.$list,
     }
 })
 

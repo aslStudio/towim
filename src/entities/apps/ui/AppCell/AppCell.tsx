@@ -71,7 +71,7 @@ export const AppCell = React.memo<AppCellProps>(({
                     animatedIcon={'boost'}
                     size={'l'}
                     view={'secondary'}
-                    onClick={() => openTelegramLink(link)}
+                    onClick={() => {}}
                 />
             </div>
         </div>

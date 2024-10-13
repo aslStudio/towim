@@ -1,5 +1,10 @@
+import { Category } from "@/shared/lib/types"
+
 export type NetworkingResponse = {
-    chatType: string
+    chats: {
+        type: Category
+        url: string
+    }[],
     incoming: {
         id: number
         name: string

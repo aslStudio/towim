@@ -28,7 +28,7 @@ export const Gifts = () => {
                 height={80}
             />
             <p className={styles.title}>Gifts</p>
-            <p className={styles.description}>Get more tickets for wheel spins here</p>
+            <p className={styles.description}>Complete tasks and receive gift</p>
             <List />
         </div>
     )
@@ -37,7 +37,7 @@ export const Gifts = () => {
 const List = () => {
     const data: GiftCellProps[] = [
         {
-            title: 'TON-transaction',
+            title: 'Promote TON blockchain',
             icon: 'ton',
             tickets: 10,
             xs: 10000,

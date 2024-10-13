@@ -1,27 +1,40 @@
 import React from "react"
+import { Swiper } from "swiper/react"
 
-import { IconBase, LoadingLayout } from "@/shared/ui"
+import { AnimatedIcon, IconBase, LoadingLayout } from "@/shared/ui"
 
 import styles from './PrivateChatCard.module.scss'
+import { useTelegram } from "@/shared/lib/hooks/useTelegram"
 
 export type PrivateChatCardProps = {
     className?: string
     isLoading: boolean
-    description: string
+    description?: string
+    link?: string
 }
 
 export const PrivateChatCard = React.memo<PrivateChatCardProps>(({
     className,
+    link,
     isLoading,
     description
 }) => {
+    const { openTelegramLink } = useTelegram()
+
     return (
-        <article className={`${styles.root} ${className ? className : ''}`}>
+        <article 
+            className={`${styles.root} ${className ? className : ''}`}
+            onClick={() => {
+                if (link) {
+                    openTelegramLink(link)
+                }
+            }}
+        >
             <div className={styles.row}>
-                <IconBase 
+                <AnimatedIcon 
                     className={styles.ton}
-                    name={'icon-ton'} 
-                    width={40} 
+                    name={'telegram'}
+                    width={40}
                     height={40}
                 />
                 <div>

@@ -103,6 +103,10 @@ export const animations = {
         more: {
             'more-light': require('./icons/more/more-light.json'),
             'more-dark': require('./icons/more/more-dark.json'),
-        }
+        },
+        telegram: {
+            'telegram-light': require('./icons/telegram/telegram-light.json'),
+            'telegram-dark': require('./icons/telegram/telegram-dark.json'),
+        },
     }
 }

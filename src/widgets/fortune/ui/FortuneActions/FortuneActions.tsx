@@ -25,7 +25,7 @@ export const FortuneActions = () => {
                 animatedIcon={'gift'}
                 onClick={() => navigate(RouterPathes.GIFTS)}
             >
-                Gift
+                Gifts
             </Button>
             <Button
                 className={styles.button}

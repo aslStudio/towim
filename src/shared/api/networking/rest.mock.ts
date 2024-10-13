@@ -1,4 +1,4 @@
-import { ResponseDefault } from '@/shared/lib/types'
+import { Category, ResponseDefault } from '@/shared/lib/types'
 import { NetworkingResponse } from './types'
 
 const imgMock = 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg'
@@ -10,7 +10,20 @@ export const networkingApi = {
         return {
             error: false,
             payload: {
-                chatType: 'Designers',
+                chats: [
+                    {
+                        type: Category.Designers,
+                        url: 'https://t.me/+Zdnjo684WVpmYTcy'
+                    },
+                    {
+                        type: Category.ContentCreators,
+                        url: 'https://t.me/+Zdnjo684WVpmYTcy'
+                    },
+                    {
+                        type: Category.GamersStreamers,
+                        url: 'https://t.me/+Zdnjo684WVpmYTcy'
+                    },
+                ],
                 incoming: [
                     {
                         id: 1,

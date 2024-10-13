@@ -1,5 +1,6 @@
 import { networkingApi } from "@/shared/api";
 import { reducers } from "@/shared/lib/reducers";
+import { Category } from "@/shared/lib/types";
 import { createEffect, createEvent, createStore, sample } from "effector";
 
 export type NetworkingUserItem = {
@@ -16,7 +17,10 @@ const $isLoading = createStore(true)
     .on(networkingRequested, reducers.enabled)
     .on(fetchFx.doneData, reducers.disabled)
 
-const $description = createStore<string>('')
+const $list = createStore<{
+    type: Category
+    url: string
+}[]>([])
 const $incoming = createStore<NetworkingUserItem[]>([])
 const $outgoing = createStore<NetworkingUserItem[]>([])
 const $whiteList = createStore<NetworkingUserItem[]>([])
@@ -50,8 +54,8 @@ sample({
 sample({
     clock: fetchFx.doneData,
     filter: ({ error }) => !error,
-    fn: ({ payload }) => payload.chatType,
-    target: $description,
+    fn: ({ payload }) => payload.chats,
+    target: $list,
 })
 
 export const networkingModel = {
@@ -60,7 +64,7 @@ export const networkingModel = {
     $incoming,
     $outgoing,
     $whiteList,
-    $description,
+    $list,
 
     networkingRequested
 }

@@ -31,7 +31,7 @@ export const ViewerProfile = () => {
             <UserForm />
             <Button
                 className={`${styles.button} ${isLoading ? styles['is-loading'] : ''}`}
-                icon={'icon-telegram-purple'}
+                animatedIcon={'towim'}
                 view={'lightBlue'}
                 size="xxl"
                 onClick={() => {}}

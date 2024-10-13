@@ -1,7 +1,5 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
 
-import { RouterPathes } from "@/shared/lib/types"
 import { CopyField, Modal, ModalProps } from "@/shared/ui"
 
 import styles from './UserShareModal.module.scss'
@@ -17,21 +15,12 @@ export const UserShareModal = React.memo<UserShareModalProps>(({
     botLink,
     onClose,
 }) => {
-    const navigate = useNavigate()
-
-    const onSubmit = () => {
-        onClose()
-        navigate(RouterPathes.NETWORKING)
-    }
-
     return (
         <Modal
             title="Share Profile"
-            buttonText="Networking"
             size="m"
             isOpen={isOpen}
             onClose={onClose}
-            onSubmit={onSubmit}
         >
             <div className={styles.wrapper}>
                 <CopyField 
