@@ -26,6 +26,10 @@
     color: $color;
     width: 100vw;
     height: 100vh;
+
+    padding-top: $safe-area-inset-top;
+    padding-bottom: $safe-area-inset-bottom;
+    box-sizing: border-box;
 }
 
 .logo {
