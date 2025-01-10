@@ -7,10 +7,11 @@ import { RouterView } from './router'
 import {KeyboardOffsetProvider} from "@/shared/lib/providers";
 
 function App() {
-    const { expand, disableVerticalSwipes } = useTelegram()
+    const { expand, disableVerticalSwipes, openFullScreen } = useTelegram()
 
     useEffect(() => {
         expand()
+        openFullScreen()
         disableVerticalSwipes()
     });
 

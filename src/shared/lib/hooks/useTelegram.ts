@@ -7,6 +7,8 @@ type TelegramWindow = {
             ready: () => void
             openTelegramLink: (data: string) => void
             setHeaderColor: (color: string) => void
+            requestFullscreen: () => void
+            lockOrientation: () => void
             shareToStory: (img: string, params?: {
                 widget_link: {
                     url: string
@@ -105,6 +107,15 @@ export const useTelegram = () => {
         }
     }
 
+    function openFullScreen() {
+        try {
+            tg.Telegram?.WebApp?.requestFullscreen()
+            tg.Telegram?.WebApp?.lockOrientation()
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     const isMobileDevice = useMemo(() => {
         return (
             tg.Telegram.WebApp.platform === 'ios' ||
@@ -126,5 +137,6 @@ export const useTelegram = () => {
         setHeaderColor,
         shareToStory,
         openTelegramLink,
+        openFullScreen,
     }
 }
