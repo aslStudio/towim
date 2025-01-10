@@ -9,7 +9,7 @@
     color: $color;
     width: 100vw;
     height: 100vh;
-    padding-top: $safe-area-inset-top;
+    padding-top: calc($safe-area-inset-top + 40px);
     padding-bottom: 5vh;
     box-sizing: border-box;
     overflow-y: auto;

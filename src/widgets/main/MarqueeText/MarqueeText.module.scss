@@ -7,7 +7,7 @@
 
 .marquee {
     width: 100%;
-    padding-top: calc(9px + #{$safe-area-inset-top});
+    padding-top: calc(49px + #{$safe-area-inset-top});
     padding-bottom: 9px;
     
     background: linear-gradient(90deg, #c76fc6 0%, #9e6dbf 100%);
@@ -24,7 +24,7 @@
 
 .button {
     position: absolute;
-    top: $safe-area-inset-top;
+    top: calc(40px + #{$safe-area-inset-top});
     right: 0;
     z-index: 2;
     
