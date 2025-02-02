@@ -1,10 +1,17 @@
-import { ResponseDefault } from '@/shared/lib/types'
+import {ResponseDefault} from "@/shared/lib/types"
+import {createRequest} from "@/shared/lib/api/createRequest"
 
-import { AuthParams, AuthResponse } from './types'
+import type { AuthParams, AuthResponse } from './types'
 
 export const authApi = {
-    auth: async (_data: AuthParams): Promise<ResponseDefault<AuthResponse>> => {
-        await new Promise(resolve => setTimeout(resolve, 5000))
+    auth: async (data: AuthParams): Promise<ResponseDefault<AuthResponse>> => {
+        const response = await createRequest({
+            url: '',
+            method: 'POST',
+            data,
+        })
+
+        console.log(response)
 
         return {
             error: false,

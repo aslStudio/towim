@@ -8,5 +8,5 @@ $secondaryBackground: var(--tg-theme-secondary-bg-color);
 $sectionBackground: var(--tg-theme-section-bg-color);
 $buttonBackground: var(--tg-theme-button-color);
 
-$safe-area-inset-bottom: var(--tg-safe-area-inset-bottom);
-$safe-area-inset-top: var(--tg-safe-area-inset-top);
+$safe-area-inset-bottom: var(--tg-safe-area-inset-bottom, 0px);
+$safe-area-inset-top: var(--tg-safe-area-inset-top, 0px);
