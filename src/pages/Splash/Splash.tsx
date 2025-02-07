@@ -23,7 +23,7 @@ export const Splash = () => {
         authModel.onSuccess.set(() => {
             const searchParams = new URLSearchParams(location.search)
             const page = searchParams.get('start')
-            
+
             if (page === 'performer') {
                 const id = searchParams.get('id')
 

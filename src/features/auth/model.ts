@@ -18,14 +18,19 @@ sample({
 
 sample({
     clock: authFx.doneData,
-    fn: payload => payload.payload.access_token,
-    target: [jwtModel.setJWTFx, onSuccess.trigger],
+    filter: ({ error }) => !error,
+    fn: ({ payload }) => payload!.result.jwt,
+    target: jwtModel.setJWTFx,
 })
 
 sample({
-    clock: authFx.doneData,
-    fn: ({ payload }) => payload,
-    target: viewerModel.shortModule.shortViewerUpdated,
+    clock: jwtModel.setJWTFx.doneData,
+    target: viewerModel.expandModule.fetchFx,
+})
+
+sample({
+    clock: viewerModel.expandModule.fetchFx.doneData,
+    target: onSuccess.trigger
 })
 
 export const authModel = {

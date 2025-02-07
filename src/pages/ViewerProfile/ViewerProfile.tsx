@@ -45,13 +45,13 @@ export const ViewerProfile = () => {
 const ViewerCardReflect = reflect({
     view: ViewerCard,
     bind: {
-        id: viewerModel.shortModule.$shortViewer.map(item => item.id),
-        name: viewerModel.shortModule.$shortViewer.map(item => item.name),
-        bio: viewerModel.shortModule.$shortViewer.map(item => item.bio),
-        avatar: viewerModel.shortModule.$shortViewer.map(item => item.avatar),
-        isVerified: viewerModel.shortModule.$shortViewer.map(item => item.isVerified),
-        isFilledProfile: viewerModel.shortModule.$shortViewer.map(item => item.isFilledProfile),
-        isPublishedProfile: viewerModel.shortModule.$shortViewer.map(item => item.isPublishedProfile),
+        id: viewerModel.expandModule.$expandViewer.map(item => item.id),
+        name: viewerModel.expandModule.$expandViewer.map(item => item.name),
+        bio: viewerModel.expandModule.$expandViewer.map(item => item.bio),
+        avatar: viewerModel.expandModule.$expandViewer.map(item => item.avatar),
+        isVerified: viewerModel.expandModule.$expandViewer.map(item => item.isVerified),
+        isFilledProfile: viewerModel.expandModule.$expandViewer.map(item => item.isFilledProfile),
+        isPublishedProfile: viewerModel.expandModule.$expandViewer.map(item => item.isPublishedProfile),
     }
 })
 
@@ -60,7 +60,7 @@ const UserStatisticsReflect = reflect({
     bind: {
         likes: viewerModel.expandModule.$expandViewer.map(item => item.likes),
         views: viewerModel.expandModule.$expandViewer.map(item => item.views),
-        xs: viewerModel.expandModule.$expandViewer.map(item => item.xs),
+        xs: viewerModel.expandModule.$expandViewer.map(item => item.coins),
         isLoading: viewerModel.expandModule.$isLoading,
         isVisible: viewerModel.expandModule.$isEditable.map(state => !state)
     }

@@ -2,12 +2,20 @@ import { viewerApi } from "@/shared/api/viewer"
 import { reducers } from "@/shared/lib/reducers"
 import {Category, SocialType} from "@/shared/lib/types"
 import { createEffect, createEvent, createStore, sample } from "effector"
+import {GetExpandPerformerResponse} from "@/shared/api/performers/types";
+import {ViewerResponse} from "@/shared/api/viewer/types";
 
 export type ExpandViewer = {
+    name: string
+    bio: string
+    avatar: string
+    isVerified: boolean
+    isFilledProfile: boolean
+    isPublishedProfile: boolean
     categories: Category[]
     likes: number
     views: number
-    xs: number
+    coins: number
     about: string
     projects: string
     skills: string
@@ -35,10 +43,16 @@ const $isLoading = createStore(true)
     .on(fetchFx.doneData, reducers.disabled)
 
 const $expandViewer = createStore<ExpandViewer>({
+    name: '',
+    bio: '',
+    avatar: '',
+    isVerified: false,
+    isFilledProfile: false,
+    isPublishedProfile: false,
     categories: [],
     likes: 0,
     views: 0,
-    xs: 0,
+    coins: 0,
     about: '',
     projects: '',
     skills: '',
@@ -53,7 +67,7 @@ const $expandViewer = createStore<ExpandViewer>({
 sample({
     clock: fetchFx.doneData,
     filter: ({ error }) => !error,
-    fn: ({ payload }) => payload,
+    fn: ({ payload }) => toDomain(payload),
     target: expandViewerUpdated,
 })
 
@@ -66,4 +80,30 @@ export const expandModule = {
     fetchFx,
     expandViewerUpdated,
     changeEditableStatus,
+}
+
+function toDomain(data: ViewerResponse): ExpandViewer {
+    return {
+        name: data.info.name,
+        bio: data.info.about,
+        avatar: data.info.avatar,
+        isVerified: data.info.is_verified,
+        isFilledProfile: true,
+        isPublishedProfile: true,
+        categories: data.info.categories,
+        likes: data.info.likes,
+        views: data.info.views,
+        coins: data.info.coins,
+        about: data.info.about,
+        projects: data.info.projects,
+        skills: data.info.skills,
+        workExperience: data.info.experience,
+        nftLink: '',
+        nfts: data.info.nfts,
+        links: data.info.socials.map(item => ({
+            type: item.type,
+            username: item.username,
+            link: item.username,
+        })),
+    }
 }

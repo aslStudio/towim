@@ -1,30 +1,29 @@
-import {ResponseDefault} from "@/shared/lib/types"
-import {createRequest} from "@/shared/lib/api/createRequest"
+import {createRequest, ResponseDefault} from "@/shared/lib/api/createRequest"
 
 import type { AuthParams, AuthResponse } from './types'
 
+const IS_DEV = true
+
 export const authApi = {
     auth: async (data: AuthParams): Promise<ResponseDefault<AuthResponse>> => {
-        const response = await createRequest({
-            url: '',
-            method: 'POST',
-            data,
-        })
-
-        console.log(response)
-
-        return {
-            error: false,
-            payload: {
-                id: 1,
-                access_token: 'test-jwt',
-                name: 'ceosasha',
-                bio: 'Star, Founder & indie maker, Star, Founder & indie maker',
-                isVerified: true,
-                avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
-                isFilledProfile: true,
-                isPublishedProfile: true,
+        if (IS_DEV) {
+            return {
+                error: false,
+                payload: {
+                    result: {
+                        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMwMzAwNzUxIiwiZXhwIjoxNzM5NDM4MDUxLCJpc3MiOiJUb3dpbUF1dGhQcm92aWRlciJ9.zYX7W_fML8VNrjOAGEpNL6I4cnNUqeUfonljsHb3gQo'
+                    }
+                }
             }
         }
+
+        return await createRequest<AuthResponse>({
+            url: 'auth/checkInitData',
+            method: 'POST',
+            data: {
+                init_data: data.init_data,
+                inviter_id: 0,
+            },
+        })
     }
 }

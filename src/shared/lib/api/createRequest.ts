@@ -1,5 +1,3 @@
-import * as process from "node:process";
-
 export type SuccessResponse<T> = {
     error: false,
     payload: T
@@ -21,7 +19,7 @@ export async function createRequest<T>(data: {
     try {
         const token = await localStorage.getItem('jwt-token')
 
-        const url = `${process.env.REACT_APP_API_URL}/${data.url}`
+        const url = `https://stage.tow.im/${data.url}/`
 
         const response = await fetch(
             url,

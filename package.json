@@ -30,9 +30,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development craco start",
-    "build:staging": "cross-env NODE_ENV=staging craco build",
-    "build:production": "cross-env NODE_ENV=production craco build"
+    "start": "NODE_ENV=development craco start",
+    "build:staging": "NODE_ENV=staging craco build",
+    "build:production": "NODE_ENV=production craco build"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +55,7 @@
   "devDependencies": {
     "@craco/craco": "^7.1.0",
     "@types/react-lottie": "^1.2.10",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "process": "^0.11.10"
   }
 }

@@ -9,14 +9,9 @@ export const authApi = {
         return {
             error: false,
             payload: {
-                id: 1,
-                access_token: 'test-jwt',
-                name: 'ceosasha',
-                bio: 'Star, Founder & indie maker, Star, Founder & indie maker',
-                isVerified: true,
-                avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
-                isFilledProfile: true,
-                isPublishedProfile: true,
+                result: {
+                    jwt: 'jwt'
+                }
             }
         }
     }
