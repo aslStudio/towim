@@ -1,0 +1,1 @@
+export { TransitionFade, type TransitionFadeProps } from './TransitionFade'

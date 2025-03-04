@@ -10,10 +10,11 @@ export type GetPerformersResponse = {
         likes: number
         avatar: string
         name: string
-        category: Category
-        bio: string
-        isVerified: boolean
-        stars: number
+        about: string
+        is_verified: boolean
+        categories: Category[]
+        coins: number
+        is_major: boolean
     }[]
 }
 

@@ -73,7 +73,7 @@ const FieldReflect = reflect({
 
 const EditButton = React.memo<{
     isEditable: boolean
-    onClick: () => void
+    onClick: (v: boolean) => void
 }>(({
     isEditable,
     onClick
@@ -85,7 +85,7 @@ const EditButton = React.memo<{
             className={styles['edit-button']}
             onClick={() => {
                 haptic()
-                onClick()
+                onClick(!isEditable)
             }}
         >
             <LoadingLayout 

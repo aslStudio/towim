@@ -1,21 +1,21 @@
-import React, { useCallback, useMemo } from "react";
-
-import { ShortViewer } from "../../model";
+import React, { useMemo } from "react";
 
 import styles from './ViewerCard.module.scss'
 import { Button, AnimatedIcon, useModal } from "@/shared/ui";
 import { useTelegram } from "@/shared/lib/hooks/useTelegram";
 import { UserShareModal } from "@/widgets/profile/UserShareModal";
+import {ExpandViewer} from "@/entities/viewer";
 
-export type ViewerCardProps = ShortViewer & {
-    className?: string
-    buttonType?: 'story' | 'share'
-    onClick?: () => void
-}
+export type ViewerCardProps =
+    Pick<ExpandViewer, 'name' | 'bio' | 'avatar' | 'isVerified' | 'isFilledProfile'> &
+    {
+        className?: string
+        buttonType?: 'story' | 'share'
+        onClick?: () => void
+    }
 
 export const ViewerCard = React.memo<ViewerCardProps>(({
     className,
-    id,
     name,
     bio,
     avatar,
@@ -117,7 +117,7 @@ export const ViewerCard = React.memo<ViewerCardProps>(({
             <UserShareModal 
                 isOpen={isOpen}
                 link={`https://tow.im/${name}`}
-                botLink={`https://t.me/towimbot/app?startapp=${id}`}
+                botLink={`https://t.me/towimbot/app?startapp=${''}`}
                 onClose={close}
             />
         </>

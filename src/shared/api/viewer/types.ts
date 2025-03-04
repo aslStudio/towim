@@ -1,6 +1,7 @@
-import {Category, SocialType} from "@/shared/lib/types"
+import {Category, PerformerState, SocialType} from "@/shared/lib/types"
 
 export type ViewerResponse = {
+    state: PerformerState
     info: {
         avatar: string
         title: string
@@ -23,5 +24,18 @@ export type ViewerResponse = {
         }[]
         is_disliked: boolean
         is_major: boolean
+    }
+}
+
+export type UpdateViewerParams = {
+    category: Category
+    about: string
+    projects: string
+    skills: string
+    experience: string
+    notifications: boolean
+    links: {
+        type: SocialType
+        username: string
     }
 }

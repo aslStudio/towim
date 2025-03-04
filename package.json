@@ -16,6 +16,7 @@
     "axios": "^1.7.3",
     "effector": "^23.2.2",
     "effector-react": "^23.2.1",
+    "framer-motion": "^12.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",

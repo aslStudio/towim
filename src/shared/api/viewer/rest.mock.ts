@@ -1,5 +1,6 @@
-import {Category, ResponseDefault, SocialType} from '@/shared/lib/types'
-import { type ViewerResponse } from './types'
+import {Category, PerformerState, SocialType} from '@/shared/lib/types'
+import {type ViewerResponse, type UpdateViewerParams} from './types'
+import {ResponseDefault} from "@/shared/lib/api/createRequest";
 
 export const viewerApi = {
     fetchExpand: async (): Promise<ResponseDefault<ViewerResponse>> => {
@@ -8,6 +9,7 @@ export const viewerApi = {
         return {
             error: false,
             payload: {
+                state: PerformerState.Active,
                 info: {
                     avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
                     title: 'title',
@@ -40,6 +42,14 @@ export const viewerApi = {
                     is_major: true,
                 },
             }
+        }
+    },
+    update: async (_: UpdateViewerParams): Promise<ResponseDefault<null>> => {
+        await new Promise(resolve => setTimeout(resolve, 3000))
+
+        return {
+            error: false,
+            payload: null,
         }
     }
 }

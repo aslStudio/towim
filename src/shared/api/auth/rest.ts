@@ -1,21 +1,14 @@
 import {createRequest, ResponseDefault} from "@/shared/lib/api/createRequest"
 
-import type { AuthParams, AuthResponse } from './types'
-
-const IS_DEV = true
+import type {
+    AuthParams,
+    AuthResponse,
+    GetBonusesResponse,
+} from './types'
 
 export const authApi = {
     auth: async (data: AuthParams): Promise<ResponseDefault<AuthResponse>> => {
-        if (IS_DEV) {
-            return {
-                error: false,
-                payload: {
-                    result: {
-                        jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjMwMzAwNzUxIiwiZXhwIjoxNzM5NDM4MDUxLCJpc3MiOiJUb3dpbUF1dGhQcm92aWRlciJ9.zYX7W_fML8VNrjOAGEpNL6I4cnNUqeUfonljsHb3gQo'
-                    }
-                }
-            }
-        }
+        console.log(data.init_data)
 
         return await createRequest<AuthResponse>({
             url: 'auth/checkInitData',
@@ -25,5 +18,11 @@ export const authApi = {
                 inviter_id: 0,
             },
         })
-    }
+    },
+    getBonuses: async (): Promise<ResponseDefault<GetBonusesResponse>> =>
+        createRequest({
+            url: 'auth/checkUserBonuses',
+            method: 'POST',
+            withAuth: true,
+        })
 }

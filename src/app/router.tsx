@@ -24,7 +24,7 @@ export const RouterView = React.memo(() => {
     useEffect(() => {
         if (location !== displayLocation) setTransitionStage("fade-out");
 
-        if ([RouterPathes.AUTH, RouterPathes.MAIN].includes(location.pathname as RouterPathes)) {
+        if ([RouterPathes, RouterPathes.MAIN].includes(location.pathname as RouterPathes)) {
             BackButton.hide()
         } else {
             BackButton.show()
@@ -49,7 +49,6 @@ export const RouterView = React.memo(() => {
             }}
         >
             <Routes location={displayLocation}>
-                <Route path={RouterPathes.AUTH} element={<Splash />} />
                 <Route path={RouterPathes.MAIN} element={<Main />} />
                 <Route path={RouterPathes.NETWORKING} element={<Networking />} />
                 <Route path={RouterPathes.PROFILE} element={<ViewerProfile />} />

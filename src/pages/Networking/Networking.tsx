@@ -8,8 +8,12 @@ import { PrivateChatCard, PrivateChatSlider } from '@/widgets/networking'
 import { NetworkingCard } from '@/entities/networking'
 import { useTelegram } from '@/shared/lib/hooks/useTelegram'
 import { useNavigate } from 'react-router-dom'
+import {useUnit} from "effector-react";
+import {complexModel} from "@/shared/lib/providers/AuthProvider";
 
 export const Networking = () => {
+    const lastMessage = useUnit(complexModel.$lastMessage)
+
     const { MainButton } = useTelegram()
     const navigate = useNavigate()
 
@@ -26,7 +30,9 @@ export const Networking = () => {
 
     return (
         <div className={styles.root}>
-            <MarqueeText />
+            {lastMessage && (
+                <MarqueeText text={lastMessage} />
+            )}
             <div className={styles.container}>
                 <CardChatReflect className={styles.chat} />
                 <IncomingReflect

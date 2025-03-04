@@ -1,9 +1,9 @@
-import { viewerApi } from "@/shared/api/viewer"
-import { reducers } from "@/shared/lib/reducers"
-import {Category, SocialType} from "@/shared/lib/types"
-import { createEffect, createEvent, createStore, sample } from "effector"
-import {GetExpandPerformerResponse} from "@/shared/api/performers/types";
-import {ViewerResponse} from "@/shared/api/viewer/types";
+import {viewerApi} from "@/shared/api/viewer"
+import {reducers} from "@/shared/lib/reducers"
+import {Category, PerformerState, SocialType} from "@/shared/lib/types"
+import {createEffect, createEvent, createStore, sample} from "effector"
+import {UpdateViewerParams, ViewerResponse} from "@/shared/api/viewer/types";
+import {getInitDataUnsafe} from "@/shared/lib/hooks/useTelegram";
 
 export type ExpandViewer = {
     name: string
@@ -30,13 +30,16 @@ export type ExpandViewer = {
 }
 
 const fetchFx = createEffect(viewerApi.fetchExpand)
+const updateFx = createEffect(viewerApi.updateExpand)
 
-const changeEditableStatus = createEvent()
+const viewerUpdatingTriggered = createEvent()
+const changeEditableStatus = createEvent<boolean>()
+const editableStatusChanged = createEvent<boolean>()
 const expandViewerUpdated = createEvent<ExpandViewer>()
 const reset = createEvent()
 
 const $isEditable = createStore(false)
-    .on(changeEditableStatus, state => !state)
+    .on(editableStatusChanged, (_, payload) => payload)
     .reset(reset)
 const $isLoading = createStore(true)
     .on(fetchFx, reducers.enabled)
@@ -59,16 +62,75 @@ const $expandViewer = createStore<ExpandViewer>({
     workExperience: '',
     nftLink: '',
     nfts: [],
-    links: [],
+    links: [
+        {
+            type: SocialType.Instagram,
+            username: '',
+            link: '',
+        },
+        {
+            type: SocialType.Telegram,
+            username: '',
+            link: '',
+        },
+    ],
 })
     .on(expandViewerUpdated, reducers.pipe)
     .reset(reset)
 
 sample({
     clock: fetchFx.doneData,
-    filter: ({ error }) => !error,
     fn: ({ payload }) => toDomain(payload),
     target: expandViewerUpdated,
+})
+
+sample({
+    clock: changeEditableStatus,
+    filter: isEditable => !!isEditable,
+    target: editableStatusChanged
+})
+
+sample({
+    clock: changeEditableStatus,
+    filter: isEditable => {
+        console.log('!!isEditable', !isEditable)
+        return !isEditable
+    },
+    target: viewerUpdatingTriggered,
+})
+
+sample({
+    source: $expandViewer,
+    clock: viewerUpdatingTriggered,
+    fn: viewer => ({
+        category: viewer.categories[0],
+        about: viewer.about,
+        projects: viewer.projects,
+        skills: viewer.skills,
+        experience: viewer.workExperience,
+        notifications: false,
+        // links: viewer.links.reduce((prev, curr) => {
+        //     return [
+        //         ...prev,
+        //         {
+        //             type: curr.type,
+        //             username: curr.username,
+        //         }
+        //     ]
+        // }, [] as UpdateViewerParams['links'])
+        links: {
+            type: SocialType.Telegram,
+            username: 'username'
+        }
+    }),
+    target: updateFx,
+})
+
+sample({
+    clock: updateFx.doneData,
+    filter: ({ error }) => !error,
+    fn: () => false,
+    target: editableStatusChanged,
 })
 
 export const expandModule = {
@@ -82,28 +144,63 @@ export const expandModule = {
     changeEditableStatus,
 }
 
-function toDomain(data: ViewerResponse): ExpandViewer {
+function toDomain(data: ViewerResponse | null): ExpandViewer {
+    if (data && 'info' in data) {
+        return {
+            name: data.info.name,
+            bio: data.info.about,
+            avatar: data.info.avatar,
+            isVerified: data.info.is_verified,
+            isFilledProfile: data.state !== PerformerState.NonExists,
+            isPublishedProfile: data.state === PerformerState.Active,
+            categories: data.info.categories,
+            likes: data.info.likes,
+            views: data.info.views,
+            coins: data.info.coins,
+            about: data.info.about,
+            projects: data.info.projects,
+            skills: data.info.skills,
+            workExperience: data.info.experience,
+            nftLink: '',
+            nfts: data.info.nfts,
+            links: data.info.socials.map(item => ({
+                type: item.type,
+                username: item.username,
+                link: item.username,
+            })),
+        }
+    }
+
+    const tgData = getInitDataUnsafe()
+
     return {
-        name: data.info.name,
-        bio: data.info.about,
-        avatar: data.info.avatar,
-        isVerified: data.info.is_verified,
-        isFilledProfile: true,
-        isPublishedProfile: true,
-        categories: data.info.categories,
-        likes: data.info.likes,
-        views: data.info.views,
-        coins: data.info.coins,
-        about: data.info.about,
-        projects: data.info.projects,
-        skills: data.info.skills,
-        workExperience: data.info.experience,
+        name: tgData.user.username,
+        bio: '',
+        avatar: tgData.user.photo_url,
+        isVerified: false,
+        isFilledProfile: false,
+        isPublishedProfile: false,
+        categories: [],
+        likes: 0,
+        views: 0,
+        coins: 0,
+        about: '',
+        projects: '',
+        skills: '',
+        workExperience: '',
         nftLink: '',
-        nfts: data.info.nfts,
-        links: data.info.socials.map(item => ({
-            type: item.type,
-            username: item.username,
-            link: item.username,
-        })),
+        nfts: [],
+        links: [
+            {
+                type: SocialType.Instagram,
+                username: '',
+                link: '',
+            },
+            {
+                type: SocialType.Telegram,
+                username: '',
+                link: '',
+            },
+        ],
     }
 }

@@ -9,8 +9,7 @@ export enum SocialType {
 }
 
 export enum RouterPathes {
-    AUTH = '/',
-    MAIN = '/main',
+    MAIN = '/',
     NETWORKING = '/networking',
     PROFILE = '/profile',
     PERFORMER = '/performer/:id',
@@ -22,6 +21,12 @@ export enum Category {
     Designers,
     ContentCreators,
     GamersStreamers
+}
+
+export enum PerformerState {
+    NonExists = 0,
+    Inactive = 1,
+    Active = 2
 }
 
 export const mapCategory: Record<Category, string> = {

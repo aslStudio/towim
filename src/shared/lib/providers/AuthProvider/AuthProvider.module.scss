@@ -1,0 +1,41 @@
+@import "src/app/styles/variables.scss";
+
+@keyframes logo-animation {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondaryBackground;
+    color: $color;
+    width: 100vw;
+    height: 100vh;
+
+    padding-top: $safe-area-inset-top;
+    padding-bottom: $safe-area-inset-bottom;
+    box-sizing: border-box;
+}
+
+.logo {
+    animation-name: logo-animation;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}

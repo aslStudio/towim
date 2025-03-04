@@ -16,9 +16,11 @@ import { useNavigate } from 'react-router-dom'
 import { RouterPathes } from '@/shared/lib/types'
 import {useTelegram} from "@/shared/lib/hooks/useTelegram";
 import { GamesSlider } from '@/widgets/games'
+import {complexModel} from "@/shared/lib/providers/AuthProvider";
 
 export const Main = () => {
-    const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.shortModule.$shortViewer)
+    const { isFilledProfile, isPublishedProfile } = useUnit(viewerModel.expandModule.$expandViewer)
+    const lastMessage = useUnit(complexModel.$lastMessage)
 
     const navigate = useNavigate()
 
@@ -26,8 +28,10 @@ export const Main = () => {
 
     return (
         <div className={styles.root}>
-            <MarqueeText />
-            <ViewerCardReflect 
+            {lastMessage && (
+                <MarqueeText text={lastMessage} />
+            )}
+            <ViewerCardReflect
                 className={styles.viewer}
                 onClick={() => {
                     haptic()
@@ -57,12 +61,12 @@ export const Main = () => {
 const ViewerCardReflect = reflect({
     view: ViewerCard,
     bind: {
-        id: viewerModel.shortModule.$shortViewer.map(item => item.id),
-        name: viewerModel.shortModule.$shortViewer.map(item => item.name),
-        bio: viewerModel.shortModule.$shortViewer.map(item => item.bio),
-        avatar: viewerModel.shortModule.$shortViewer.map(item => item.avatar),
-        isVerified: viewerModel.shortModule.$shortViewer.map(item => item.isVerified),
-        isFilledProfile: viewerModel.shortModule.$shortViewer.map(item => item.isFilledProfile),
-        isPublishedProfile: viewerModel.shortModule.$shortViewer.map(item => item.isPublishedProfile),
+        id: viewerModel.expandModule.$expandViewer.map(item => 0),
+        name: viewerModel.expandModule.$expandViewer.map(item => item.name),
+        bio: viewerModel.expandModule.$expandViewer.map(item => item.bio),
+        avatar: viewerModel.expandModule.$expandViewer.map(item => item.avatar),
+        isVerified: viewerModel.expandModule.$expandViewer.map(item => item.isVerified),
+        isFilledProfile: viewerModel.expandModule.$expandViewer.map(item => item.isFilledProfile),
+        isPublishedProfile: viewerModel.expandModule.$expandViewer.map(item => item.isPublishedProfile),
     }
 })
