@@ -12,5 +12,10 @@ export const messageApi = {
             }
         }
     },
-
+    sendLastMessage: async () => {
+        return {
+            error: false,
+            payload: null
+        }
+    }
 }
