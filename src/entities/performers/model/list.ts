@@ -3,6 +3,8 @@ import {createEffect} from "effector/effector.umd";
 import {performersApi} from "@/shared/api";
 import { useUnit } from 'effector-react';
 import {Category} from "@/shared/lib/types";
+import {ResponseDefault} from "@/shared/lib/api/createRequest";
+import {GetPerformersResponse} from "@/shared/api/performers/types";
 
 export type Founder = {
     id: number
@@ -22,8 +24,7 @@ const $list = createStore<Founder[]>([])
 
 sample({
     clock: fetchFx.doneData,
-    filter: ({ error }) => !error,
-    fn: ({ payload }) => payload.list,
+    fn: data => toDomain(data),
     target: $list,
 })
 
@@ -36,4 +37,21 @@ export const listModule = {
     $list,
     fetchFx,
     useList,
+}
+
+function toDomain(data: ResponseDefault<GetPerformersResponse>): Founder[] {
+    if (!data.payload?.list) {
+        return []
+    }
+
+    return data.payload.list.map(item => ({
+        id: item.id,
+        name: item.name,
+        likes: item.likes,
+        avatar: item.avatar,
+        bio: item.avatar,
+        category: item.categories[0],
+        isVerified: item.is_verified,
+        stars: item.coins,
+    }))
 }

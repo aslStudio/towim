@@ -1,6 +1,7 @@
-import {Category, ResponseDefault, SocialType} from '@/shared/lib/types'
+import {Category, SocialType} from '@/shared/lib/types'
 import {GetExpandPerformerParams, GetExpandPerformerResponse, GetPerformersParams, GetPerformersResponse} from './types'
 import {getRandomInt} from "@/shared/lib/number";
+import {ResponseDefault} from "@/shared/lib/api/createRequest";
 
 export const performersApi = {
     fetch: async (_data: GetPerformersParams): Promise<ResponseDefault<GetPerformersResponse>> => {
@@ -14,10 +15,11 @@ export const performersApi = {
                     likes: getRandomInt(1, 100),
                     avatar: 'https://i.pinimg.com/736x/be/39/7c/be397c91b8026b17f5f8a6ed98e23e9e.jpg',
                     name: 'Anton',
-                    bio: 'Star, Founder & indie maker, Star, Founder & indie maker',
-                    category: getRandomInt(0, 2) as Category,
-                    stars: getRandomInt(1, 100),
-                    isVerified: Boolean(getRandomInt(0, 1))
+                    about: 'Star, Founder & indie maker, Star, Founder & indie maker',
+                    categories: [getRandomInt(0, 2)] as Category[],
+                    coins: getRandomInt(1, 100),
+                    is_verified: Boolean(getRandomInt(0, 1)),
+                    is_major: false,
                 }))
             }
         }

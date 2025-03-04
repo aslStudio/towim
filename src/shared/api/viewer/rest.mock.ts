@@ -44,7 +44,7 @@ export const viewerApi = {
             }
         }
     },
-    update: async (_: UpdateViewerParams): Promise<ResponseDefault<null>> => {
+    updateExpand: async (_: UpdateViewerParams): Promise<ResponseDefault<null>> => {
         await new Promise(resolve => setTimeout(resolve, 3000))
 
         return {

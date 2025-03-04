@@ -2,6 +2,8 @@ import {Category, SocialType} from "@/shared/lib/types";
 import {createEffect, createEvent, createStore, sample} from "effector";
 import {performersApi} from "@/shared/api";
 import {reducers} from "@/shared/lib/reducers";
+import {ResponseDefault} from "@/shared/lib/api/createRequest";
+import {GetExpandPerformerResponse} from "@/shared/api/performers/types";
 
 export type ExpandPerformer = {
     id: number
@@ -71,7 +73,7 @@ sample({
 sample({
     clock: fetchPerformerFx.doneData,
     filter: ({ error }) => !error,
-    fn: ({ payload }) => payload,
+    fn: toDomain,
     target: $active,
 })
 
@@ -80,4 +82,23 @@ export const poolModule = {
     $isLoading,
 
     performerRequested,
+}
+
+function toDomain(data: ResponseDefault<GetExpandPerformerResponse>): ExpandPerformer {
+    return {
+        id: data.payload!.id,
+        avatar: data.payload!.avatar,
+        name: data.payload!.name,
+        isVerified: data.payload!.isVerified,
+        categories: data.payload!.categories,
+        likes: data.payload!.likes,
+        views: data.payload!.views,
+        xs: data.payload!.xs,
+        about: data.payload!.about,
+        projects: data.payload!.projects,
+        skills: data.payload!.skills,
+        workExperience: data.payload!.workExperience,
+        nfts: data.payload!.nfts,
+        links: data.payload!.links,
+    }
 }
